@@ -31,8 +31,10 @@ add_filter('rest_allowed_cors_headers', function ($allowed_headers) {
     return $allowed_headers;
 });
 
-// Ajouter les headers CORS HTTP directement
-add_action('send_headers', function() {
+// Hook spécifique pour envoyer les headers CORS sur l'API REST
+add_filter('rest_send_cors_headers', '__return_true');
+
+add_action('rest_api_init', function() {
     $allowed_origins = [
         'http://localhost:5173',
         'http://127.0.0.1:5173',
@@ -40,16 +42,10 @@ add_action('send_headers', function() {
         'https://template-woo-commerce-headless-3jh7wv8rz.vercel.app',
     ];
 
-    $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
-
-    if (in_array($origin, $allowed_origins)) {
-        header('Access-Control-Allow-Origin: ' . $origin);
+    if (!empty($_SERVER['HTTP_ORIGIN']) && in_array($_SERVER['HTTP_ORIGIN'], $allowed_origins)) {
+        header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
         header('Access-Control-Allow-Credentials: true');
         header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS, PATCH');
         header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
-    }
-
-    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-        exit(0);
     }
 });
