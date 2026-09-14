@@ -19,12 +19,12 @@
  */
 
 // ** Database settings - Auto-detect local vs production ** //
-if ( getenv( 'MYSQL_HOST' ) ) {
+if ( getenv( 'DB_HOST' ) ) {
     // Production (Railway)
-    define( 'DB_NAME', getenv( 'MYSQL_DATABASE' ) );
-    define( 'DB_USER', getenv( 'MYSQL_USER' ) );
-    define( 'DB_PASSWORD', getenv( 'MYSQL_PASSWORD' ) );
-    define( 'DB_HOST', getenv( 'MYSQL_HOST' ) . ':' . getenv( 'MYSQL_PORT' ) );
+    define( 'DB_NAME', getenv( 'DB_NAME' ) );
+    define( 'DB_USER', getenv( 'DB_USER' ) );
+    define( 'DB_PASSWORD', getenv( 'DB_PASSWORD' ) );
+    define( 'DB_HOST', getenv( 'DB_HOST' ) );
 } else {
     // Local development
     define( 'DB_NAME', 'ravie_woocomerce' );
