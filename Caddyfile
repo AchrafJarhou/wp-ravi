@@ -1,0 +1,37 @@
+{
+    admin off
+    log {
+        level error
+    }
+}
+
+:80 {
+    root * /app
+    encode zstd gzip
+
+    @cors_origin header Origin https://template-woo-commerce-headless-3jh7w8rz.vercel.app
+    @cors_local header Origin {http://localhost:5173,http://127.0.0.1:5173,http://10.60.4.51:5173}
+
+    @cors {
+        method OPTIONS
+    }
+
+    handle @cors {
+        header Access-Control-Allow-Origin {http.request.header.Origin}
+        header Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+        header Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+        header Access-Control-Allow-Credentials "true"
+        respond 204
+    }
+
+    header Access-Control-Allow-Origin {http.request.header.Origin}
+    header Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+    header Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+    header Access-Control-Allow-Credentials "true"
+
+    php_handler {
+        root /app
+    }
+
+    file_server
+}
