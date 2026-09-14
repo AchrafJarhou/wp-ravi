@@ -1,0 +1,14 @@
+{$CADDY_HOST}:{$CADDY_PORT}
+
+root /app
+
+@notfile {
+    not path /wp-admin*
+    not path /wp-login.php
+    not path /wp-json*
+    file {
+        try_files {path} {path}/ /index.php?{query}
+    }
+}
+
+rewrite @notfile /index.php
