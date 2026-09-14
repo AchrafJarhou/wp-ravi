@@ -19,8 +19,8 @@ add_filter('allowed_http_origins', function ($origins) {
     $origins[] = 'http://192.168.1.*';
     $origins[] = 'http://192.168.*';
 
-    // En production (remplace par ton domaine)
-    // $origins[] = 'https://mondomaine.com';
+    // Frontend Vercel (production)
+    $origins[] = 'https://template-woo-commerce-headless.vercel.app';
 
     return $origins;
 });
