@@ -32,7 +32,7 @@ add_filter('rest_allowed_cors_headers', function ($allowed_headers) {
 });
 
 // Ajouter les headers CORS HTTP directement
-add_action('init', function() {
+add_action('send_headers', function() {
     $allowed_origins = [
         'http://localhost:5173',
         'http://127.0.0.1:5173',
@@ -52,4 +52,4 @@ add_action('init', function() {
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
         exit(0);
     }
-}, 0);
+});
