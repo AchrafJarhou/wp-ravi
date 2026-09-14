@@ -1,0 +1,45 @@
+# WordPress sensitive files
+wp-config.php
+.env
+.env.local
+.env.*.local
+
+# WordPress uploads
+wp-content/uploads/
+
+# WordPress plugins (except custom ones)
+wp-content/plugins/*
+!wp-content/plugins/.gitkeep
+
+# WordPress themes (except custom ones)
+wp-content/themes/*
+!wp-content/themes/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+.windows-thumbnail.db
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# Node modules (if using npm)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Composer
+vendor/
+composer.lock
+
+# Backup files
+*.bak
+*.backup
+*.tmp
+wp-cli.local.yml

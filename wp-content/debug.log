@@ -1,0 +1,521 @@
+[07-Sep-2026 07:17:57 UTC] Automatic updates starting...
+[07-Sep-2026 07:17:58 UTC]   Automatic plugin updates starting...
+[07-Sep-2026 07:17:58 UTC]   Automatic plugin updates complete.
+[07-Sep-2026 07:17:59 UTC] Automatic updates complete.
+[07-Sep-2026 13:58:45 UTC] Automatic updates starting...
+[07-Sep-2026 13:58:49 UTC]   Automatic plugin updates starting...
+[07-Sep-2026 13:58:49 UTC]   Automatic plugin updates complete.
+[07-Sep-2026 13:58:50 UTC] Automatic updates complete.
+[08-Sep-2026 06:57:57 UTC] Automatic updates starting...
+[08-Sep-2026 06:57:59 UTC]   Automatic plugin updates starting...
+[08-Sep-2026 06:57:59 UTC]   Automatic plugin updates complete.
+[08-Sep-2026 06:58:00 UTC] Automatic updates complete.
+[08-Sep-2026 13:58:48 UTC] Automatic updates starting...
+[08-Sep-2026 13:58:49 UTC]   Automatic plugin updates starting...
+[08-Sep-2026 13:58:49 UTC]   Automatic plugin updates complete.
+[08-Sep-2026 13:58:50 UTC] Automatic updates complete.
+[09-Sep-2026 07:01:52 UTC] Automatic updates starting...
+[09-Sep-2026 07:01:55 UTC]   Automatic plugin updates starting...
+[09-Sep-2026 07:01:55 UTC]   Automatic plugin updates complete.
+[09-Sep-2026 07:01:57 UTC] Automatic updates complete.
+[09-Sep-2026 12:03:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method WC_Order::add_shipping_method() in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\checkout.php:89
+Stack trace:
+#0 C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php(1293): headless_create_order_from_checkout(Object(WP_REST_Request))
+#1 C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php(1126): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/custom/v1/chec...', Array, NULL)
+#2 C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php(441): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#3 C:\wamp64\www\wordpress-ravi\wp-includes\rest-api.php(488): WP_REST_Server->serve_request('/custom/v1/chec...')
+#4 C:\wamp64\www\wordpress-ravi\wp-includes\class-wp-hook.php(353): rest_api_loaded(Object(WP))
+#5 C:\wamp64\www\wordpress-ravi\wp-includes\class-wp-hook.php(377): WP_Hook->apply_filters(NULL, Array)
+#6 C:\wamp64\www\wordpress-ravi\wp-includes\plugin.php(571): WP_Hook->do_action(Array)
+#7 C:\wamp64\www\wordpress-ravi\wp-includes\class-wp.php(418): do_action_ref_array('parse_request', Array)
+#8 C:\wamp64\www\wordpress-ravi\wp-includes\class-wp.php(821): WP->parse_request('')
+#9 C:\wamp64\www\wordpress-ravi\wp-includes\functions.php(1352): WP->main('')
+#10 C:\wamp64\www\wordpress-ravi\wp-blog-header.php(16): wp()
+#11 C:\wamp64\www\wordpress-ravi\index.php(17): require('C:\\wamp64\\www\\w...')
+#12 {main}
+  thrown in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\checkout.php on line 89
+[09-Sep-2026 13:58:49 UTC] Automatic updates starting...
+[09-Sep-2026 13:58:50 UTC]   Automatic plugin updates starting...
+[09-Sep-2026 13:58:50 UTC]   Automatic plugin updates complete.
+[09-Sep-2026 13:58:50 UTC] Automatic updates complete.
+[10-Sep-2026 07:21:57 UTC] Automatic updates starting...
+[10-Sep-2026 07:22:01 UTC]   Automatic plugin updates starting...
+[10-Sep-2026 07:22:01 UTC]   Automatic plugin updates complete.
+[10-Sep-2026 07:22:02 UTC] Automatic updates complete.
+[10-Sep-2026 14:00:22 UTC] Automatic updates starting...
+[10-Sep-2026 14:00:22 UTC]   Automatic plugin updates starting...
+[10-Sep-2026 14:00:22 UTC]   Automatic plugin updates complete.
+[10-Sep-2026 14:00:23 UTC] Automatic updates complete.
+[10-Sep-2026 14:46:00 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:46:00 UTC] PHP Stack trace:
+[10-Sep-2026 14:46:00 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:46:00 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:46:00 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:46:00 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:46:00 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:46:08 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:46:08 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:46:08 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:46:08 UTC] PHP Stack trace:
+[10-Sep-2026 14:46:08 UTC] PHP Stack trace:
+[10-Sep-2026 14:46:08 UTC] PHP Stack trace:
+[10-Sep-2026 14:46:08 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:46:08 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:46:08 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:46:08 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:46:08 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:46:08 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:46:08 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:46:08 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:46:08 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:46:08 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:46:08 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:46:08 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:46:08 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:46:08 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:46:08 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:46:08 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:46:08 UTC] PHP Stack trace:
+[10-Sep-2026 14:46:08 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:46:08 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:46:08 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:46:08 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:46:08 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:46:08 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:46:08 UTC] PHP Stack trace:
+[10-Sep-2026 14:46:08 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:46:08 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:46:08 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:46:08 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:46:08 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:46:08 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:46:08 UTC] PHP Stack trace:
+[10-Sep-2026 14:46:08 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:46:08 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:46:08 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:46:08 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:46:08 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:46:08 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:46:08 UTC] PHP Stack trace:
+[10-Sep-2026 14:46:08 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:46:08 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:46:08 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:46:08 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:46:08 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:46:16 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:46:16 UTC] PHP Stack trace:
+[10-Sep-2026 14:46:16 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\wp-admin\admin-ajax.php:0
+[10-Sep-2026 14:46:16 UTC] PHP   2. require_once() C:\wamp64\www\wordpress-ravi\wp-admin\admin-ajax.php:22
+[10-Sep-2026 14:46:16 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:46:16 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:47:04 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:47:04 UTC] PHP Stack trace:
+[10-Sep-2026 14:47:04 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:47:04 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:47:04 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:47:04 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:47:04 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:47:04 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:47:04 UTC] PHP Stack trace:
+[10-Sep-2026 14:47:04 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:47:04 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:47:04 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:47:04 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:47:04 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:47:04 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:47:04 UTC] PHP Stack trace:
+[10-Sep-2026 14:47:04 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:47:04 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:47:04 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:47:04 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:47:04 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:47:04 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:47:04 UTC] PHP Stack trace:
+[10-Sep-2026 14:47:04 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:47:04 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:47:04 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:47:04 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:47:04 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:47:04 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:47:04 UTC] PHP Stack trace:
+[10-Sep-2026 14:47:04 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:47:04 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:47:04 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:47:04 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:47:04 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:47:04 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:47:04 UTC] PHP Stack trace:
+[10-Sep-2026 14:47:04 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:47:04 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:47:04 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:47:04 UTC] PHP Stack trace:
+[10-Sep-2026 14:47:04 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:47:04 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:47:04 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:47:04 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:47:04 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:47:04 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:47:04 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:47:04 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:47:16 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:47:16 UTC] PHP Stack trace:
+[10-Sep-2026 14:47:16 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\wp-admin\admin-ajax.php:0
+[10-Sep-2026 14:47:16 UTC] PHP   2. require_once() C:\wamp64\www\wordpress-ravi\wp-admin\admin-ajax.php:22
+[10-Sep-2026 14:47:16 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:47:16 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:48:28 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:48:28 UTC] PHP Stack trace:
+[10-Sep-2026 14:48:28 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:48:28 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:48:28 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:48:28 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:48:28 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:48:47 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:48:47 UTC] PHP Stack trace:
+[10-Sep-2026 14:48:47 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:48:47 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:48:47 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:48:47 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:48:47 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:48:47 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:48:47 UTC] PHP Stack trace:
+[10-Sep-2026 14:48:47 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:48:47 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:48:47 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:48:47 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:48:47 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:48:47 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:48:47 UTC] PHP Stack trace:
+[10-Sep-2026 14:48:47 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:48:47 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:48:47 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:48:47 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:48:47 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:48:47 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:48:47 UTC] PHP Stack trace:
+[10-Sep-2026 14:48:47 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:48:47 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:48:47 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:48:47 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:48:47 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:48:47 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:48:47 UTC] PHP Stack trace:
+[10-Sep-2026 14:48:47 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:48:47 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:48:47 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:48:47 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:48:47 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:48:47 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:48:47 UTC] PHP Stack trace:
+[10-Sep-2026 14:48:47 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:48:47 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:48:47 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:48:47 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:48:47 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:48:48 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:48:48 UTC] PHP Stack trace:
+[10-Sep-2026 14:48:48 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:48:48 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:48:48 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:48:48 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:48:48 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:49:17 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:49:17 UTC] PHP Stack trace:
+[10-Sep-2026 14:49:17 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\wp-admin\admin-ajax.php:0
+[10-Sep-2026 14:49:17 UTC] PHP   2. require_once() C:\wamp64\www\wordpress-ravi\wp-admin\admin-ajax.php:22
+[10-Sep-2026 14:49:17 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:49:17 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[10-Sep-2026 14:49:20 UTC] PHP Fatal error:  Cannot redeclare headless_get_user_id_from_jwt() (previously declared in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\customer.php:10) in C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\orders.php on line 12
+[10-Sep-2026 14:49:20 UTC] PHP Stack trace:
+[10-Sep-2026 14:49:20 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[10-Sep-2026 14:49:20 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[10-Sep-2026 14:49:20 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[10-Sep-2026 14:49:20 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[10-Sep-2026 14:49:20 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[11-Sep-2026 07:23:07 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée in C:\wamp64\www\wordpress-ravi\wp-includes\class-wpdb.php on line 1990
+[11-Sep-2026 07:23:07 UTC] PHP Stack trace:
+[11-Sep-2026 07:23:07 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[11-Sep-2026 07:23:07 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[11-Sep-2026 07:23:07 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[11-Sep-2026 07:23:07 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[11-Sep-2026 07:23:07 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[11-Sep-2026 07:23:07 UTC] PHP   6. require_wp_db() C:\wamp64\www\wordpress-ravi\wp-settings.php:136
+[11-Sep-2026 07:23:07 UTC] PHP   7. wpdb->__construct($dbuser = 'root', $dbpassword = '[Sensitive Parameter]', $dbname = 'ravie_woocomerce', $dbhost = 'localhost') C:\wamp64\www\wordpress-ravi\wp-includes\load.php:724
+[11-Sep-2026 07:23:07 UTC] PHP   8. wpdb->db_connect($allow_bail = *uninitialized*) C:\wamp64\www\wordpress-ravi\wp-includes\class-wpdb.php:772
+[11-Sep-2026 07:23:07 UTC] PHP   9. mysqli_real_connect($mysql = class mysqli { public $client_info = 'mysqlnd 8.3.14'; public $client_version = 80314; public $connect_errno = 2002; public $connect_error = 'Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée'; public $errno = 2002; public $error = 'Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée' }, $hostname = 'localhost', $username = 'root', $password = '[Sensitive Parameter]', $database = NULL, $port = NULL, $socket = NULL, $flags = 0) C:\wamp64\www\wordpress-ravi\wp-includes\class-wpdb.php:1990
+[11-Sep-2026 07:23:07 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée in C:\wamp64\www\wordpress-ravi\wp-includes\class-wpdb.php on line 1990
+[11-Sep-2026 07:23:07 UTC] PHP Stack trace:
+[11-Sep-2026 07:23:07 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[11-Sep-2026 07:23:07 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[11-Sep-2026 07:23:07 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[11-Sep-2026 07:23:07 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[11-Sep-2026 07:23:07 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[11-Sep-2026 07:23:07 UTC] PHP   6. require_wp_db() C:\wamp64\www\wordpress-ravi\wp-settings.php:136
+[11-Sep-2026 07:23:07 UTC] PHP   7. wpdb->__construct($dbuser = 'root', $dbpassword = '[Sensitive Parameter]', $dbname = 'ravie_woocomerce', $dbhost = 'localhost') C:\wamp64\www\wordpress-ravi\wp-includes\load.php:724
+[11-Sep-2026 07:23:07 UTC] PHP   8. wpdb->db_connect($allow_bail = *uninitialized*) C:\wamp64\www\wordpress-ravi\wp-includes\class-wpdb.php:772
+[11-Sep-2026 07:23:07 UTC] PHP   9. mysqli_real_connect($mysql = class mysqli { public $client_info = 'mysqlnd 8.3.14'; public $client_version = 80314; public $connect_errno = 2002; public $connect_error = 'Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée'; public $errno = 2002; public $error = 'Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée' }, $hostname = 'localhost', $username = 'root', $password = '[Sensitive Parameter]', $database = NULL, $port = NULL, $socket = NULL, $flags = 0) C:\wamp64\www\wordpress-ravi\wp-includes\class-wpdb.php:1990
+[11-Sep-2026 07:23:07 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée in C:\wamp64\www\wordpress-ravi\wp-includes\class-wpdb.php on line 1990
+[11-Sep-2026 07:23:07 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée in C:\wamp64\www\wordpress-ravi\wp-includes\class-wpdb.php on line 1990
+[11-Sep-2026 07:23:07 UTC] PHP Stack trace:
+[11-Sep-2026 07:23:07 UTC] PHP Stack trace:
+[11-Sep-2026 07:23:07 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[11-Sep-2026 07:23:07 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[11-Sep-2026 07:23:07 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[11-Sep-2026 07:23:07 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[11-Sep-2026 07:23:07 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[11-Sep-2026 07:23:07 UTC] PHP   6. require_wp_db() C:\wamp64\www\wordpress-ravi\wp-settings.php:136
+[11-Sep-2026 07:23:07 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[11-Sep-2026 07:23:07 UTC] PHP   7. wpdb->__construct($dbuser = 'root', $dbpassword = '[Sensitive Parameter]', $dbname = 'ravie_woocomerce', $dbhost = 'localhost') C:\wamp64\www\wordpress-ravi\wp-includes\load.php:724
+[11-Sep-2026 07:23:07 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[11-Sep-2026 07:23:07 UTC] PHP   8. wpdb->db_connect($allow_bail = *uninitialized*) C:\wamp64\www\wordpress-ravi\wp-includes\class-wpdb.php:772
+[11-Sep-2026 07:23:07 UTC] PHP   3. require_once() C:\wamp64\www\wordpress-ravi\wp-blog-header.php:13
+[11-Sep-2026 07:23:07 UTC] PHP   9. mysqli_real_connect($mysql = class mysqli { public $client_info = 'mysqlnd 8.3.14'; public $client_version = 80314; public $connect_errno = 2002; public $connect_error = 'Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée'; public $errno = 2002; public $error = 'Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée' }, $hostname = 'localhost', $username = 'root', $password = '[Sensitive Parameter]', $database = NULL, $port = NULL, $socket = NULL, $flags = 0) C:\wamp64\www\wordpress-ravi\wp-includes\class-wpdb.php:1990
+[11-Sep-2026 07:23:07 UTC] PHP   4. require_once() C:\wamp64\www\wordpress-ravi\wp-load.php:50
+[11-Sep-2026 07:23:07 UTC] PHP   5. require_once() C:\wamp64\www\wordpress-ravi\wp-config.php:112
+[11-Sep-2026 07:23:07 UTC] PHP   6. require_wp_db() C:\wamp64\www\wordpress-ravi\wp-settings.php:136
+[11-Sep-2026 07:23:07 UTC] PHP   7. wpdb->__construct($dbuser = 'root', $dbpassword = '[Sensitive Parameter]', $dbname = 'ravie_woocomerce', $dbhost = 'localhost') C:\wamp64\www\wordpress-ravi\wp-includes\load.php:724
+[11-Sep-2026 07:23:07 UTC] PHP   8. wpdb->db_connect($allow_bail = *uninitialized*) C:\wamp64\www\wordpress-ravi\wp-includes\class-wpdb.php:772
+[11-Sep-2026 07:23:07 UTC] PHP   9. mysqli_real_connect($mysql = class mysqli { public $client_info = 'mysqlnd 8.3.14'; public $client_version = 80314; public $connect_errno = 2002; public $connect_error = 'Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée'; public $errno = 2002; public $error = 'Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée' }, $hostname = 'localhost', $username = 'root', $password = '[Sensitive Parameter]', $database = NULL, $port = NULL, $socket = NULL, $flags = 0) C:\wamp64\www\wordpress-ravi\wp-includes\class-wpdb.php:1990
+[11-Sep-2026 07:40:45 UTC] Contact form received: achraf (jarhou06@gmail.com)
+[11-Sep-2026 07:40:45 UTC] Message: bonjour teste tous va bien
+[11-Sep-2026 07:45:48 UTC] Contact form received: jarhou (jarhou06@gmail.com)
+[11-Sep-2026 07:45:48 UTC] Message: bonjour teste apres debug
+[11-Sep-2026 07:57:54 UTC] Contact form received: jarhou (jarhou06@gmail.com)
+[11-Sep-2026 07:57:54 UTC] Message: bonjour teste envoi email
+[11-Sep-2026 07:57:54 UTC] 📧 SENDING EMAIL - To: achraf.jarhou@laplateforme.io | Subject: Nouveau message de contact - jarhou
+[11-Sep-2026 07:57:54 UTC] === MAILHOG CONFIG START ===
+[11-Sep-2026 07:57:54 UTC] Mailhog Host: 127.0.0.1
+[11-Sep-2026 07:57:54 UTC] Mailhog Port: 1025
+[11-Sep-2026 07:57:54 UTC] === MAILHOG CONFIG END ===
+[11-Sep-2026 08:00:26 UTC] Contact form received: jarhou (jarhou06@gmail.com)
+[11-Sep-2026 08:00:26 UTC] Message: bonjour teste email contact
+[11-Sep-2026 08:00:26 UTC] 📧 SENDING EMAIL - To: achraf.jarhou@laplateforme.io | Subject: Nouveau message de contact - jarhou
+[11-Sep-2026 08:00:26 UTC] === MAILHOG CONFIG START ===
+[11-Sep-2026 08:00:26 UTC] Mailhog Host: 127.0.0.1
+[11-Sep-2026 08:00:26 UTC] Mailhog Port: 1025
+[11-Sep-2026 08:00:26 UTC] === MAILHOG CONFIG END ===
+[11-Sep-2026 08:02:54 UTC] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\SMTP.php on line 1360
+[11-Sep-2026 08:02:54 UTC] PHP Stack trace:
+[11-Sep-2026 08:02:54 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[11-Sep-2026 08:02:54 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[11-Sep-2026 08:02:54 UTC] PHP   3. wp($query_vars = *uninitialized*) C:\wamp64\www\wordpress-ravi\wp-blog-header.php:16
+[11-Sep-2026 08:02:54 UTC] PHP   4. WP->main($query_args = '') C:\wamp64\www\wordpress-ravi\wp-includes\functions.php:1352
+[11-Sep-2026 08:02:54 UTC] PHP   5. WP->parse_request($extra_query_vars = '') C:\wamp64\www\wordpress-ravi\wp-includes\class-wp.php:821
+[11-Sep-2026 08:02:54 UTC] PHP   6. do_action_ref_array($hook_name = 'parse_request', $args = [0 => class WP { public $public_query_vars = [...]; public $private_query_vars = [...]; public $extra_query_vars = [...]; public $query_vars = [...]; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }]) C:\wamp64\www\wordpress-ravi\wp-includes\class-wp.php:418
+[11-Sep-2026 08:02:54 UTC] PHP   7. WP_Hook->do_action($args = [0 => class WP { public $public_query_vars = [...]; public $private_query_vars = [...]; public $extra_query_vars = [...]; public $query_vars = [...]; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }]) C:\wamp64\www\wordpress-ravi\wp-includes\plugin.php:571
+[11-Sep-2026 08:02:54 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => class WP { public $public_query_vars = [...]; public $private_query_vars = [...]; public $extra_query_vars = [...]; public $query_vars = [...]; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }]) C:\wamp64\www\wordpress-ravi\wp-includes\class-wp-hook.php:377
+[11-Sep-2026 08:02:54 UTC] PHP   9. rest_api_loaded(class WP { public $public_query_vars = [0 => 'rating_filter', 1 => 'filter_taille', 2 => 'query_type_taille', 3 => 'filter_stock_status', 4 => 'min_price', 5 => 'max_price', 6 => 'm', 7 => 'p', 8 => 'posts', 9 => 'w', 10 => 'cat', 11 => 'withcomments', 12 => 'withoutcomments', 13 => 's', 14 => 'search', 15 => 'exact', 16 => 'sentence', 17 => 'calendar', 18 => 'page', 19 => 'paged', 20 => 'more', 21 => 'tb', 22 => 'pb', 23 => 'author', 24 => 'order', 25 => 'orderby', 26 => 'year', 27 => 'monthnum', 28 => 'day', 29 => 'hour', 30 => 'minute', 31 => 'second', 32 => 'name', 33 => 'category_name', 34 => 'tag', 35 => 'feed', 36 => 'author_name', 37 => 'pagename', 38 => 'page_id', 39 => 'error', 40 => 'attachment', 41 => 'attachment_id', 42 => 'subpost', 43 => 'subpost_id', 44 => 'preview', 45 => 'robots', 46 => 'favicon', 47 => 'taxonomy', 48 => 'term', 49 => 'cpage', 50 => 'post_type', 51 => 'embed', 52 => 'post_format', 53 => 'wc/file/transient', 54 => 'wc-api', 55 => 'product_brand', 56 => 'product_cat', 57 => 'product_tag', 58 => 'product', 59 => 'rest_route', 60 => 'sitemap', 61 => 'sitemap-subtype', 62 => 'sitemap-stylesheet', 63 => 'order-pay', 64 => 'order-received', 65 => 'orders', 66 => 'view-order', 67 => 'downloads', 68 => 'edit-account', 69 => 'edit-address', 70 => 'payment-methods', 71 => 'lost-password', 72 => 'customer-logout', 73 => 'add-payment-method', 74 => 'delete-payment-method', 75 => 'set-default-payment-method', 76 => 'wc-auth-version', 77 => 'wc-auth-route', 78 => 'order-pay', 79 => 'order-received', 80 => 'orders', 81 => 'view-order', 82 => 'downloads', 83 => 'edit-account', 84 => 'edit-address', 85 => 'payment-methods', 86 => 'lost-password', 87 => 'customer-logout', 88 => 'add-payment-method', 89 => 'delete-payment-method', 90 => 'set-default-payment-method', 91 => 'wc-transient-file-name', 92 => 'wc-api-version', 93 => 'wc-api-route', 94 => 'wc-api', 95 => 'checkout-link', 96 => 'min_price', 97 => 'max_price', 98 => 'rating_filter', 99 => 'filter_stock_status', 100 => 'filter_taille', 101 => 'query_type_taille', 102 => 'brands', 103 => 'categories', 104 => 'tags']; public $private_query_vars = [0 => 'offset', 1 => 'posts_per_page', 2 => 'posts_per_archive_page', 3 => 'showposts', 4 => 'nopaging', 5 => 'post_type', 6 => 'post_status', 7 => 'category__in', 8 => 'category__not_in', 9 => 'category__and', 10 => 'tag__in', 11 => 'tag__not_in', 12 => 'tag__and', 13 => 'tag_slug__in', 14 => 'tag_slug__and', 15 => 'tag_id', 16 => 'post_mime_type', 17 => 'perm', 18 => 'comments_per_page', 19 => 'post__in', 20 => 'post__not_in', 21 => 'post_parent', 22 => 'post_parent__in', 23 => 'post_parent__not_in', 24 => 'title', 25 => 'fields']; public $extra_query_vars = []; public $query_vars = ['rest_route' => '/custom/v1/contact']; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }) C:\wamp64\www\wordpress-ravi\wp-includes\class-wp-hook.php:353
+[11-Sep-2026 08:02:54 UTC] PHP  10. WP_REST_Server->serve_request($path = '/custom/v1/contact') C:\wamp64\www\wordpress-ravi\wp-includes\rest-api.php:488
+[11-Sep-2026 08:02:54 UTC] PHP  11. WP_REST_Server->dispatch($request = class WP_REST_Request { protected $method = 'POST'; protected $params = ['URL' => [...], 'GET' => [...], 'POST' => [...], 'FILES' => [...], 'JSON' => [...], 'defaults' => [...]]; protected $headers = ['authorization' => [...], 'host' => [...], 'connection' => [...], 'content_length' => [...], 'sec_ch_ua_platform' => [...], 'user_agent' => [...], 'sec_ch_ua' => [...], 'content_type' => [...], 'sec_ch_ua_mobile' => [...], 'accept' => [...], 'origin' => [...], 'sec_fetch_site' => [...], 'sec_fetch_mode' => [...], 'sec_fetch_dest' => [...], 'referer' => [...], 'accept_encoding' => [...], 'accept_language' => [...]]; protected $body = '{"name":"jarhou","email":"jarhou06@gmail.com","message":"bonjour teste envoi email"}'; protected $route = '/custom/v1/contact'; protected $attributes = ['methods' => [...], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [...], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true']; protected $parsed_json = TRUE; protected $parsed_body = FALSE }) C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php:441
+[11-Sep-2026 08:02:54 UTC] PHP  12. WP_REST_Server->respond_to_request($request = class WP_REST_Request { protected $method = 'POST'; protected $params = ['URL' => [...], 'GET' => [...], 'POST' => [...], 'FILES' => [...], 'JSON' => [...], 'defaults' => [...]]; protected $headers = ['authorization' => [...], 'host' => [...], 'connection' => [...], 'content_length' => [...], 'sec_ch_ua_platform' => [...], 'user_agent' => [...], 'sec_ch_ua' => [...], 'content_type' => [...], 'sec_ch_ua_mobile' => [...], 'accept' => [...], 'origin' => [...], 'sec_fetch_site' => [...], 'sec_fetch_mode' => [...], 'sec_fetch_dest' => [...], 'referer' => [...], 'accept_encoding' => [...], 'accept_language' => [...]]; protected $body = '{"name":"jarhou","email":"jarhou06@gmail.com","message":"bonjour teste envoi email"}'; protected $route = '/custom/v1/contact'; protected $attributes = ['methods' => [...], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [...], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true']; protected $parsed_json = TRUE; protected $parsed_body = FALSE }, $route = '/custom/v1/contact', $handler = ['methods' => ['POST' => TRUE], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true'], $response = NULL) C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php:1126
+[11-Sep-2026 08:02:54 UTC] PHP  13. handle_contact_form($request = class WP_REST_Request { protected $method = 'POST'; protected $params = ['URL' => [...], 'GET' => [...], 'POST' => [...], 'FILES' => [...], 'JSON' => [...], 'defaults' => [...]]; protected $headers = ['authorization' => [...], 'host' => [...], 'connection' => [...], 'content_length' => [...], 'sec_ch_ua_platform' => [...], 'user_agent' => [...], 'sec_ch_ua' => [...], 'content_type' => [...], 'sec_ch_ua_mobile' => [...], 'accept' => [...], 'origin' => [...], 'sec_fetch_site' => [...], 'sec_fetch_mode' => [...], 'sec_fetch_dest' => [...], 'referer' => [...], 'accept_encoding' => [...], 'accept_language' => [...]]; protected $body = '{"name":"jarhou","email":"jarhou06@gmail.com","message":"bonjour teste envoi email"}'; protected $route = '/custom/v1/contact'; protected $attributes = ['methods' => [...], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [...], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true']; protected $parsed_json = TRUE; protected $parsed_body = FALSE }) C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php:1293
+[11-Sep-2026 08:02:54 UTC] PHP  14. wp_mail($to = 'achraf.jarhou@laplateforme.io', $subject = 'Nouveau message de contact - jarhou', $message = 'Nouveau message reçu:\n\nNom: jarhou\nEmail: jarhou06@gmail.com\nMessage:\nbonjour teste envoi email\n', $headers = [0 => 'Content-Type: text/plain; charset=UTF-8', 1 => 'From: jarhou <jarhou06@gmail.com>'], $attachments = *uninitialized*, $embeds = *uninitialized*) C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\contact-form-handler.php:89
+[11-Sep-2026 08:02:54 UTC] PHP  15. PHPMailer\PHPMailer\PHPMailer->send() C:\wamp64\www\wordpress-ravi\wp-includes\pluggable.php:628
+[11-Sep-2026 08:02:54 UTC] PHP  16. PHPMailer\PHPMailer\PHPMailer->postSend() C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:1670
+[11-Sep-2026 08:02:54 UTC] PHP  17. PHPMailer\PHPMailer\PHPMailer->smtpSend($header = 'Date: Fri, 11 Sep 2026 07:57:54 +0000\r\nTo: achraf.jarhou@laplateforme.io\r\nFrom: Ravie <achraf.jarhou@laplateforme.io>\r\nSubject: Nouveau message de contact - jarhou\r\nMessage-ID: <KWRiTLmyJXtn0x1CohY6XuIM6gODnss88usb0JIfP44@localhost>\r\nX-Mailer: PHPMailer 7.1.1 (https://github.com/PHPMailer/PHPMailer)\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n', $body = 'Nouveau message reçu:\r\n\r\nNom: jarhou\r\nEmail: jarhou06@gmail.com\r\nMessage:\r\nbonjour teste envoi email\r\n') C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:1855
+[11-Sep-2026 08:02:54 UTC] PHP  18. PHPMailer\PHPMailer\PHPMailer->smtpConnect($options = []) C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:2235
+[11-Sep-2026 08:02:54 UTC] PHP  19. PHPMailer\PHPMailer\SMTP->connect($host = '127.0.0.1', $port = 1025, $timeout = 300, $options = []) C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:2405
+[11-Sep-2026 08:02:54 UTC] PHP  20. PHPMailer\PHPMailer\SMTP->get_lines() C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\SMTP.php:379
+[11-Sep-2026 08:03:43 UTC] Contact form received: jarhou (jarhou06@gmail.com)
+[11-Sep-2026 08:03:43 UTC] Message: bonjour test envoi email contact
+[11-Sep-2026 08:03:43 UTC] 📧 SENDING EMAIL - To: achraf.jarhou@laplateforme.io | Subject: Nouveau message de contact - jarhou
+[11-Sep-2026 08:03:43 UTC] === MAILHOG CONFIG START ===
+[11-Sep-2026 08:03:43 UTC] Mailhog Host: 127.0.0.1
+[11-Sep-2026 08:03:43 UTC] Mailhog Port: 1025
+[11-Sep-2026 08:03:43 UTC] === MAILHOG CONFIG END ===
+[11-Sep-2026 08:05:26 UTC] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\SMTP.php on line 1360
+[11-Sep-2026 08:05:26 UTC] PHP Stack trace:
+[11-Sep-2026 08:05:26 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[11-Sep-2026 08:05:26 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[11-Sep-2026 08:05:26 UTC] PHP   3. wp($query_vars = *uninitialized*) C:\wamp64\www\wordpress-ravi\wp-blog-header.php:16
+[11-Sep-2026 08:05:26 UTC] PHP   4. WP->main($query_args = '') C:\wamp64\www\wordpress-ravi\wp-includes\functions.php:1352
+[11-Sep-2026 08:05:26 UTC] PHP   5. WP->parse_request($extra_query_vars = '') C:\wamp64\www\wordpress-ravi\wp-includes\class-wp.php:821
+[11-Sep-2026 08:05:26 UTC] PHP   6. do_action_ref_array($hook_name = 'parse_request', $args = [0 => class WP { public $public_query_vars = [...]; public $private_query_vars = [...]; public $extra_query_vars = [...]; public $query_vars = [...]; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }]) C:\wamp64\www\wordpress-ravi\wp-includes\class-wp.php:418
+[11-Sep-2026 08:05:26 UTC] PHP   7. WP_Hook->do_action($args = [0 => class WP { public $public_query_vars = [...]; public $private_query_vars = [...]; public $extra_query_vars = [...]; public $query_vars = [...]; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }]) C:\wamp64\www\wordpress-ravi\wp-includes\plugin.php:571
+[11-Sep-2026 08:05:26 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => class WP { public $public_query_vars = [...]; public $private_query_vars = [...]; public $extra_query_vars = [...]; public $query_vars = [...]; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }]) C:\wamp64\www\wordpress-ravi\wp-includes\class-wp-hook.php:377
+[11-Sep-2026 08:05:26 UTC] PHP   9. rest_api_loaded(class WP { public $public_query_vars = [0 => 'rating_filter', 1 => 'filter_taille', 2 => 'query_type_taille', 3 => 'filter_stock_status', 4 => 'min_price', 5 => 'max_price', 6 => 'm', 7 => 'p', 8 => 'posts', 9 => 'w', 10 => 'cat', 11 => 'withcomments', 12 => 'withoutcomments', 13 => 's', 14 => 'search', 15 => 'exact', 16 => 'sentence', 17 => 'calendar', 18 => 'page', 19 => 'paged', 20 => 'more', 21 => 'tb', 22 => 'pb', 23 => 'author', 24 => 'order', 25 => 'orderby', 26 => 'year', 27 => 'monthnum', 28 => 'day', 29 => 'hour', 30 => 'minute', 31 => 'second', 32 => 'name', 33 => 'category_name', 34 => 'tag', 35 => 'feed', 36 => 'author_name', 37 => 'pagename', 38 => 'page_id', 39 => 'error', 40 => 'attachment', 41 => 'attachment_id', 42 => 'subpost', 43 => 'subpost_id', 44 => 'preview', 45 => 'robots', 46 => 'favicon', 47 => 'taxonomy', 48 => 'term', 49 => 'cpage', 50 => 'post_type', 51 => 'embed', 52 => 'post_format', 53 => 'wc/file/transient', 54 => 'wc-api', 55 => 'product_brand', 56 => 'product_cat', 57 => 'product_tag', 58 => 'product', 59 => 'rest_route', 60 => 'sitemap', 61 => 'sitemap-subtype', 62 => 'sitemap-stylesheet', 63 => 'order-pay', 64 => 'order-received', 65 => 'orders', 66 => 'view-order', 67 => 'downloads', 68 => 'edit-account', 69 => 'edit-address', 70 => 'payment-methods', 71 => 'lost-password', 72 => 'customer-logout', 73 => 'add-payment-method', 74 => 'delete-payment-method', 75 => 'set-default-payment-method', 76 => 'wc-auth-version', 77 => 'wc-auth-route', 78 => 'order-pay', 79 => 'order-received', 80 => 'orders', 81 => 'view-order', 82 => 'downloads', 83 => 'edit-account', 84 => 'edit-address', 85 => 'payment-methods', 86 => 'lost-password', 87 => 'customer-logout', 88 => 'add-payment-method', 89 => 'delete-payment-method', 90 => 'set-default-payment-method', 91 => 'wc-transient-file-name', 92 => 'wc-api-version', 93 => 'wc-api-route', 94 => 'wc-api', 95 => 'checkout-link', 96 => 'min_price', 97 => 'max_price', 98 => 'rating_filter', 99 => 'filter_stock_status', 100 => 'filter_taille', 101 => 'query_type_taille', 102 => 'brands', 103 => 'categories', 104 => 'tags']; public $private_query_vars = [0 => 'offset', 1 => 'posts_per_page', 2 => 'posts_per_archive_page', 3 => 'showposts', 4 => 'nopaging', 5 => 'post_type', 6 => 'post_status', 7 => 'category__in', 8 => 'category__not_in', 9 => 'category__and', 10 => 'tag__in', 11 => 'tag__not_in', 12 => 'tag__and', 13 => 'tag_slug__in', 14 => 'tag_slug__and', 15 => 'tag_id', 16 => 'post_mime_type', 17 => 'perm', 18 => 'comments_per_page', 19 => 'post__in', 20 => 'post__not_in', 21 => 'post_parent', 22 => 'post_parent__in', 23 => 'post_parent__not_in', 24 => 'title', 25 => 'fields']; public $extra_query_vars = []; public $query_vars = ['rest_route' => '/custom/v1/contact']; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }) C:\wamp64\www\wordpress-ravi\wp-includes\class-wp-hook.php:353
+[11-Sep-2026 08:05:26 UTC] PHP  10. WP_REST_Server->serve_request($path = '/custom/v1/contact') C:\wamp64\www\wordpress-ravi\wp-includes\rest-api.php:488
+[11-Sep-2026 08:05:26 UTC] PHP  11. WP_REST_Server->dispatch($request = class WP_REST_Request { protected $method = 'POST'; protected $params = ['URL' => [...], 'GET' => [...], 'POST' => [...], 'FILES' => [...], 'JSON' => [...], 'defaults' => [...]]; protected $headers = ['authorization' => [...], 'host' => [...], 'connection' => [...], 'content_length' => [...], 'sec_ch_ua_platform' => [...], 'user_agent' => [...], 'sec_ch_ua' => [...], 'content_type' => [...], 'sec_ch_ua_mobile' => [...], 'accept' => [...], 'origin' => [...], 'sec_fetch_site' => [...], 'sec_fetch_mode' => [...], 'sec_fetch_dest' => [...], 'referer' => [...], 'accept_encoding' => [...], 'accept_language' => [...]]; protected $body = '{"name":"jarhou","email":"jarhou06@gmail.com","message":"bonjour teste email contact"}'; protected $route = '/custom/v1/contact'; protected $attributes = ['methods' => [...], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [...], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true']; protected $parsed_json = TRUE; protected $parsed_body = FALSE }) C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php:441
+[11-Sep-2026 08:05:26 UTC] PHP  12. WP_REST_Server->respond_to_request($request = class WP_REST_Request { protected $method = 'POST'; protected $params = ['URL' => [...], 'GET' => [...], 'POST' => [...], 'FILES' => [...], 'JSON' => [...], 'defaults' => [...]]; protected $headers = ['authorization' => [...], 'host' => [...], 'connection' => [...], 'content_length' => [...], 'sec_ch_ua_platform' => [...], 'user_agent' => [...], 'sec_ch_ua' => [...], 'content_type' => [...], 'sec_ch_ua_mobile' => [...], 'accept' => [...], 'origin' => [...], 'sec_fetch_site' => [...], 'sec_fetch_mode' => [...], 'sec_fetch_dest' => [...], 'referer' => [...], 'accept_encoding' => [...], 'accept_language' => [...]]; protected $body = '{"name":"jarhou","email":"jarhou06@gmail.com","message":"bonjour teste email contact"}'; protected $route = '/custom/v1/contact'; protected $attributes = ['methods' => [...], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [...], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true']; protected $parsed_json = TRUE; protected $parsed_body = FALSE }, $route = '/custom/v1/contact', $handler = ['methods' => ['POST' => TRUE], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true'], $response = NULL) C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php:1126
+[11-Sep-2026 08:05:26 UTC] PHP  13. handle_contact_form($request = class WP_REST_Request { protected $method = 'POST'; protected $params = ['URL' => [...], 'GET' => [...], 'POST' => [...], 'FILES' => [...], 'JSON' => [...], 'defaults' => [...]]; protected $headers = ['authorization' => [...], 'host' => [...], 'connection' => [...], 'content_length' => [...], 'sec_ch_ua_platform' => [...], 'user_agent' => [...], 'sec_ch_ua' => [...], 'content_type' => [...], 'sec_ch_ua_mobile' => [...], 'accept' => [...], 'origin' => [...], 'sec_fetch_site' => [...], 'sec_fetch_mode' => [...], 'sec_fetch_dest' => [...], 'referer' => [...], 'accept_encoding' => [...], 'accept_language' => [...]]; protected $body = '{"name":"jarhou","email":"jarhou06@gmail.com","message":"bonjour teste email contact"}'; protected $route = '/custom/v1/contact'; protected $attributes = ['methods' => [...], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [...], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true']; protected $parsed_json = TRUE; protected $parsed_body = FALSE }) C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php:1293
+[11-Sep-2026 08:05:26 UTC] PHP  14. wp_mail($to = 'achraf.jarhou@laplateforme.io', $subject = 'Nouveau message de contact - jarhou', $message = 'Nouveau message reçu:\n\nNom: jarhou\nEmail: jarhou06@gmail.com\nMessage:\nbonjour teste email contact\n', $headers = [0 => 'Content-Type: text/plain; charset=UTF-8', 1 => 'From: jarhou <jarhou06@gmail.com>'], $attachments = *uninitialized*, $embeds = *uninitialized*) C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\contact-form-handler.php:89
+[11-Sep-2026 08:05:26 UTC] PHP  15. PHPMailer\PHPMailer\PHPMailer->send() C:\wamp64\www\wordpress-ravi\wp-includes\pluggable.php:628
+[11-Sep-2026 08:05:26 UTC] PHP  16. PHPMailer\PHPMailer\PHPMailer->postSend() C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:1670
+[11-Sep-2026 08:05:26 UTC] PHP  17. PHPMailer\PHPMailer\PHPMailer->smtpSend($header = 'Date: Fri, 11 Sep 2026 08:00:26 +0000\r\nTo: achraf.jarhou@laplateforme.io\r\nFrom: Ravie <achraf.jarhou@laplateforme.io>\r\nSubject: Nouveau message de contact - jarhou\r\nMessage-ID: <pupxjb1bJmPz1yJSlwPg3UukEVpbPcuAeNOhWbsq0uI@localhost>\r\nX-Mailer: PHPMailer 7.1.1 (https://github.com/PHPMailer/PHPMailer)\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n', $body = 'Nouveau message reçu:\r\n\r\nNom: jarhou\r\nEmail: jarhou06@gmail.com\r\nMessage:\r\nbonjour teste email contact\r\n') C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:1855
+[11-Sep-2026 08:05:26 UTC] PHP  18. PHPMailer\PHPMailer\PHPMailer->smtpConnect($options = []) C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:2235
+[11-Sep-2026 08:05:26 UTC] PHP  19. PHPMailer\PHPMailer\SMTP->connect($host = '127.0.0.1', $port = 1025, $timeout = 300, $options = []) C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:2405
+[11-Sep-2026 08:05:26 UTC] PHP  20. PHPMailer\PHPMailer\SMTP->get_lines() C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\SMTP.php:379
+[11-Sep-2026 08:06:24 UTC] Contact form received: jarhou achraf (jarhou06@gmail.com)
+[11-Sep-2026 08:06:24 UTC] Message: coucou test email contact
+[11-Sep-2026 08:06:24 UTC] 📧 SENDING EMAIL - To: achraf.jarhou@laplateforme.io | Subject: Nouveau message de contact - jarhou achraf
+[11-Sep-2026 08:06:24 UTC] === MAILHOG CONFIG START ===
+[11-Sep-2026 08:06:24 UTC] Mailhog Host: 127.0.0.1
+[11-Sep-2026 08:06:24 UTC] Mailhog Port: 1025
+[11-Sep-2026 08:06:24 UTC] === MAILHOG CONFIG END ===
+[11-Sep-2026 08:08:43 UTC] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\SMTP.php on line 1360
+[11-Sep-2026 08:08:43 UTC] PHP Stack trace:
+[11-Sep-2026 08:08:43 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[11-Sep-2026 08:08:43 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[11-Sep-2026 08:08:43 UTC] PHP   3. wp($query_vars = *uninitialized*) C:\wamp64\www\wordpress-ravi\wp-blog-header.php:16
+[11-Sep-2026 08:08:43 UTC] PHP   4. WP->main($query_args = '') C:\wamp64\www\wordpress-ravi\wp-includes\functions.php:1352
+[11-Sep-2026 08:08:43 UTC] PHP   5. WP->parse_request($extra_query_vars = '') C:\wamp64\www\wordpress-ravi\wp-includes\class-wp.php:821
+[11-Sep-2026 08:08:43 UTC] PHP   6. do_action_ref_array($hook_name = 'parse_request', $args = [0 => class WP { public $public_query_vars = [...]; public $private_query_vars = [...]; public $extra_query_vars = [...]; public $query_vars = [...]; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }]) C:\wamp64\www\wordpress-ravi\wp-includes\class-wp.php:418
+[11-Sep-2026 08:08:43 UTC] PHP   7. WP_Hook->do_action($args = [0 => class WP { public $public_query_vars = [...]; public $private_query_vars = [...]; public $extra_query_vars = [...]; public $query_vars = [...]; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }]) C:\wamp64\www\wordpress-ravi\wp-includes\plugin.php:571
+[11-Sep-2026 08:08:43 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => class WP { public $public_query_vars = [...]; public $private_query_vars = [...]; public $extra_query_vars = [...]; public $query_vars = [...]; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }]) C:\wamp64\www\wordpress-ravi\wp-includes\class-wp-hook.php:377
+[11-Sep-2026 08:08:43 UTC] PHP   9. rest_api_loaded(class WP { public $public_query_vars = [0 => 'rating_filter', 1 => 'filter_taille', 2 => 'query_type_taille', 3 => 'filter_stock_status', 4 => 'min_price', 5 => 'max_price', 6 => 'm', 7 => 'p', 8 => 'posts', 9 => 'w', 10 => 'cat', 11 => 'withcomments', 12 => 'withoutcomments', 13 => 's', 14 => 'search', 15 => 'exact', 16 => 'sentence', 17 => 'calendar', 18 => 'page', 19 => 'paged', 20 => 'more', 21 => 'tb', 22 => 'pb', 23 => 'author', 24 => 'order', 25 => 'orderby', 26 => 'year', 27 => 'monthnum', 28 => 'day', 29 => 'hour', 30 => 'minute', 31 => 'second', 32 => 'name', 33 => 'category_name', 34 => 'tag', 35 => 'feed', 36 => 'author_name', 37 => 'pagename', 38 => 'page_id', 39 => 'error', 40 => 'attachment', 41 => 'attachment_id', 42 => 'subpost', 43 => 'subpost_id', 44 => 'preview', 45 => 'robots', 46 => 'favicon', 47 => 'taxonomy', 48 => 'term', 49 => 'cpage', 50 => 'post_type', 51 => 'embed', 52 => 'post_format', 53 => 'wc/file/transient', 54 => 'wc-api', 55 => 'product_brand', 56 => 'product_cat', 57 => 'product_tag', 58 => 'product', 59 => 'rest_route', 60 => 'sitemap', 61 => 'sitemap-subtype', 62 => 'sitemap-stylesheet', 63 => 'order-pay', 64 => 'order-received', 65 => 'orders', 66 => 'view-order', 67 => 'downloads', 68 => 'edit-account', 69 => 'edit-address', 70 => 'payment-methods', 71 => 'lost-password', 72 => 'customer-logout', 73 => 'add-payment-method', 74 => 'delete-payment-method', 75 => 'set-default-payment-method', 76 => 'wc-auth-version', 77 => 'wc-auth-route', 78 => 'order-pay', 79 => 'order-received', 80 => 'orders', 81 => 'view-order', 82 => 'downloads', 83 => 'edit-account', 84 => 'edit-address', 85 => 'payment-methods', 86 => 'lost-password', 87 => 'customer-logout', 88 => 'add-payment-method', 89 => 'delete-payment-method', 90 => 'set-default-payment-method', 91 => 'wc-transient-file-name', 92 => 'wc-api-version', 93 => 'wc-api-route', 94 => 'wc-api', 95 => 'checkout-link', 96 => 'min_price', 97 => 'max_price', 98 => 'rating_filter', 99 => 'filter_stock_status', 100 => 'filter_taille', 101 => 'query_type_taille', 102 => 'brands', 103 => 'categories', 104 => 'tags']; public $private_query_vars = [0 => 'offset', 1 => 'posts_per_page', 2 => 'posts_per_archive_page', 3 => 'showposts', 4 => 'nopaging', 5 => 'post_type', 6 => 'post_status', 7 => 'category__in', 8 => 'category__not_in', 9 => 'category__and', 10 => 'tag__in', 11 => 'tag__not_in', 12 => 'tag__and', 13 => 'tag_slug__in', 14 => 'tag_slug__and', 15 => 'tag_id', 16 => 'post_mime_type', 17 => 'perm', 18 => 'comments_per_page', 19 => 'post__in', 20 => 'post__not_in', 21 => 'post_parent', 22 => 'post_parent__in', 23 => 'post_parent__not_in', 24 => 'title', 25 => 'fields']; public $extra_query_vars = []; public $query_vars = ['rest_route' => '/custom/v1/contact']; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }) C:\wamp64\www\wordpress-ravi\wp-includes\class-wp-hook.php:353
+[11-Sep-2026 08:08:43 UTC] PHP  10. WP_REST_Server->serve_request($path = '/custom/v1/contact') C:\wamp64\www\wordpress-ravi\wp-includes\rest-api.php:488
+[11-Sep-2026 08:08:43 UTC] PHP  11. WP_REST_Server->dispatch($request = class WP_REST_Request { protected $method = 'POST'; protected $params = ['URL' => [...], 'GET' => [...], 'POST' => [...], 'FILES' => [...], 'JSON' => [...], 'defaults' => [...]]; protected $headers = ['authorization' => [...], 'host' => [...], 'connection' => [...], 'content_length' => [...], 'sec_ch_ua_platform' => [...], 'user_agent' => [...], 'sec_ch_ua' => [...], 'content_type' => [...], 'sec_ch_ua_mobile' => [...], 'accept' => [...], 'origin' => [...], 'sec_fetch_site' => [...], 'sec_fetch_mode' => [...], 'sec_fetch_dest' => [...], 'referer' => [...], 'accept_encoding' => [...], 'accept_language' => [...]]; protected $body = '{"name":"jarhou","email":"jarhou06@gmail.com","message":"bonjour test envoi email contact"}'; protected $route = '/custom/v1/contact'; protected $attributes = ['methods' => [...], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [...], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true']; protected $parsed_json = TRUE; protected $parsed_body = FALSE }) C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php:441
+[11-Sep-2026 08:08:43 UTC] PHP  12. WP_REST_Server->respond_to_request($request = class WP_REST_Request { protected $method = 'POST'; protected $params = ['URL' => [...], 'GET' => [...], 'POST' => [...], 'FILES' => [...], 'JSON' => [...], 'defaults' => [...]]; protected $headers = ['authorization' => [...], 'host' => [...], 'connection' => [...], 'content_length' => [...], 'sec_ch_ua_platform' => [...], 'user_agent' => [...], 'sec_ch_ua' => [...], 'content_type' => [...], 'sec_ch_ua_mobile' => [...], 'accept' => [...], 'origin' => [...], 'sec_fetch_site' => [...], 'sec_fetch_mode' => [...], 'sec_fetch_dest' => [...], 'referer' => [...], 'accept_encoding' => [...], 'accept_language' => [...]]; protected $body = '{"name":"jarhou","email":"jarhou06@gmail.com","message":"bonjour test envoi email contact"}'; protected $route = '/custom/v1/contact'; protected $attributes = ['methods' => [...], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [...], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true']; protected $parsed_json = TRUE; protected $parsed_body = FALSE }, $route = '/custom/v1/contact', $handler = ['methods' => ['POST' => TRUE], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true'], $response = NULL) C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php:1126
+[11-Sep-2026 08:08:43 UTC] PHP  13. handle_contact_form($request = class WP_REST_Request { protected $method = 'POST'; protected $params = ['URL' => [...], 'GET' => [...], 'POST' => [...], 'FILES' => [...], 'JSON' => [...], 'defaults' => [...]]; protected $headers = ['authorization' => [...], 'host' => [...], 'connection' => [...], 'content_length' => [...], 'sec_ch_ua_platform' => [...], 'user_agent' => [...], 'sec_ch_ua' => [...], 'content_type' => [...], 'sec_ch_ua_mobile' => [...], 'accept' => [...], 'origin' => [...], 'sec_fetch_site' => [...], 'sec_fetch_mode' => [...], 'sec_fetch_dest' => [...], 'referer' => [...], 'accept_encoding' => [...], 'accept_language' => [...]]; protected $body = '{"name":"jarhou","email":"jarhou06@gmail.com","message":"bonjour test envoi email contact"}'; protected $route = '/custom/v1/contact'; protected $attributes = ['methods' => [...], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [...], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true']; protected $parsed_json = TRUE; protected $parsed_body = FALSE }) C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php:1293
+[11-Sep-2026 08:08:43 UTC] PHP  14. wp_mail($to = 'achraf.jarhou@laplateforme.io', $subject = 'Nouveau message de contact - jarhou', $message = 'Nouveau message reçu:\n\nNom: jarhou\nEmail: jarhou06@gmail.com\nMessage:\nbonjour test envoi email contact\n', $headers = [0 => 'Content-Type: text/plain; charset=UTF-8', 1 => 'From: jarhou <jarhou06@gmail.com>'], $attachments = *uninitialized*, $embeds = *uninitialized*) C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\contact-form-handler.php:89
+[11-Sep-2026 08:08:43 UTC] PHP  15. PHPMailer\PHPMailer\PHPMailer->send() C:\wamp64\www\wordpress-ravi\wp-includes\pluggable.php:628
+[11-Sep-2026 08:08:43 UTC] PHP  16. PHPMailer\PHPMailer\PHPMailer->postSend() C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:1670
+[11-Sep-2026 08:08:43 UTC] PHP  17. PHPMailer\PHPMailer\PHPMailer->smtpSend($header = 'Date: Fri, 11 Sep 2026 08:03:43 +0000\r\nTo: achraf.jarhou@laplateforme.io\r\nFrom: Ravie <achraf.jarhou@laplateforme.io>\r\nSubject: Nouveau message de contact - jarhou\r\nMessage-ID: <JxNWR7FpqJAeEQNXaOON6xlP3Vv7U4NEdyNJC2BOO4@localhost>\r\nX-Mailer: PHPMailer 7.1.1 (https://github.com/PHPMailer/PHPMailer)\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n', $body = 'Nouveau message reçu:\r\n\r\nNom: jarhou\r\nEmail: jarhou06@gmail.com\r\nMessage:\r\nbonjour test envoi email contact\r\n') C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:1855
+[11-Sep-2026 08:08:43 UTC] PHP  18. PHPMailer\PHPMailer\PHPMailer->smtpConnect($options = []) C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:2235
+[11-Sep-2026 08:08:43 UTC] PHP  19. PHPMailer\PHPMailer\SMTP->connect($host = '127.0.0.1', $port = 1025, $timeout = 5, $options = []) C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:2405
+[11-Sep-2026 08:08:43 UTC] PHP  20. PHPMailer\PHPMailer\SMTP->get_lines() C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\SMTP.php:379
+[11-Sep-2026 08:08:46 UTC] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\SMTP.php on line 1360
+[11-Sep-2026 08:08:46 UTC] PHP Stack trace:
+[11-Sep-2026 08:08:46 UTC] PHP   1. {main}() C:\wamp64\www\wordpress-ravi\index.php:0
+[11-Sep-2026 08:08:46 UTC] PHP   2. require() C:\wamp64\www\wordpress-ravi\index.php:17
+[11-Sep-2026 08:08:46 UTC] PHP   3. wp($query_vars = *uninitialized*) C:\wamp64\www\wordpress-ravi\wp-blog-header.php:16
+[11-Sep-2026 08:08:46 UTC] PHP   4. WP->main($query_args = '') C:\wamp64\www\wordpress-ravi\wp-includes\functions.php:1352
+[11-Sep-2026 08:08:46 UTC] PHP   5. WP->parse_request($extra_query_vars = '') C:\wamp64\www\wordpress-ravi\wp-includes\class-wp.php:821
+[11-Sep-2026 08:08:46 UTC] PHP   6. do_action_ref_array($hook_name = 'parse_request', $args = [0 => class WP { public $public_query_vars = [...]; public $private_query_vars = [...]; public $extra_query_vars = [...]; public $query_vars = [...]; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }]) C:\wamp64\www\wordpress-ravi\wp-includes\class-wp.php:418
+[11-Sep-2026 08:08:46 UTC] PHP   7. WP_Hook->do_action($args = [0 => class WP { public $public_query_vars = [...]; public $private_query_vars = [...]; public $extra_query_vars = [...]; public $query_vars = [...]; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }]) C:\wamp64\www\wordpress-ravi\wp-includes\plugin.php:571
+[11-Sep-2026 08:08:46 UTC] PHP   8. WP_Hook->apply_filters($value = '', $args = [0 => class WP { public $public_query_vars = [...]; public $private_query_vars = [...]; public $extra_query_vars = [...]; public $query_vars = [...]; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }]) C:\wamp64\www\wordpress-ravi\wp-includes\class-wp-hook.php:377
+[11-Sep-2026 08:08:46 UTC] PHP   9. rest_api_loaded(class WP { public $public_query_vars = [0 => 'rating_filter', 1 => 'filter_taille', 2 => 'query_type_taille', 3 => 'filter_stock_status', 4 => 'min_price', 5 => 'max_price', 6 => 'm', 7 => 'p', 8 => 'posts', 9 => 'w', 10 => 'cat', 11 => 'withcomments', 12 => 'withoutcomments', 13 => 's', 14 => 'search', 15 => 'exact', 16 => 'sentence', 17 => 'calendar', 18 => 'page', 19 => 'paged', 20 => 'more', 21 => 'tb', 22 => 'pb', 23 => 'author', 24 => 'order', 25 => 'orderby', 26 => 'year', 27 => 'monthnum', 28 => 'day', 29 => 'hour', 30 => 'minute', 31 => 'second', 32 => 'name', 33 => 'category_name', 34 => 'tag', 35 => 'feed', 36 => 'author_name', 37 => 'pagename', 38 => 'page_id', 39 => 'error', 40 => 'attachment', 41 => 'attachment_id', 42 => 'subpost', 43 => 'subpost_id', 44 => 'preview', 45 => 'robots', 46 => 'favicon', 47 => 'taxonomy', 48 => 'term', 49 => 'cpage', 50 => 'post_type', 51 => 'embed', 52 => 'post_format', 53 => 'wc/file/transient', 54 => 'wc-api', 55 => 'product_brand', 56 => 'product_cat', 57 => 'product_tag', 58 => 'product', 59 => 'rest_route', 60 => 'sitemap', 61 => 'sitemap-subtype', 62 => 'sitemap-stylesheet', 63 => 'order-pay', 64 => 'order-received', 65 => 'orders', 66 => 'view-order', 67 => 'downloads', 68 => 'edit-account', 69 => 'edit-address', 70 => 'payment-methods', 71 => 'lost-password', 72 => 'customer-logout', 73 => 'add-payment-method', 74 => 'delete-payment-method', 75 => 'set-default-payment-method', 76 => 'wc-auth-version', 77 => 'wc-auth-route', 78 => 'order-pay', 79 => 'order-received', 80 => 'orders', 81 => 'view-order', 82 => 'downloads', 83 => 'edit-account', 84 => 'edit-address', 85 => 'payment-methods', 86 => 'lost-password', 87 => 'customer-logout', 88 => 'add-payment-method', 89 => 'delete-payment-method', 90 => 'set-default-payment-method', 91 => 'wc-transient-file-name', 92 => 'wc-api-version', 93 => 'wc-api-route', 94 => 'wc-api', 95 => 'checkout-link', 96 => 'min_price', 97 => 'max_price', 98 => 'rating_filter', 99 => 'filter_stock_status', 100 => 'filter_taille', 101 => 'query_type_taille', 102 => 'brands', 103 => 'categories', 104 => 'tags']; public $private_query_vars = [0 => 'offset', 1 => 'posts_per_page', 2 => 'posts_per_archive_page', 3 => 'showposts', 4 => 'nopaging', 5 => 'post_type', 6 => 'post_status', 7 => 'category__in', 8 => 'category__not_in', 9 => 'category__and', 10 => 'tag__in', 11 => 'tag__not_in', 12 => 'tag__and', 13 => 'tag_slug__in', 14 => 'tag_slug__and', 15 => 'tag_id', 16 => 'post_mime_type', 17 => 'perm', 18 => 'comments_per_page', 19 => 'post__in', 20 => 'post__not_in', 21 => 'post_parent', 22 => 'post_parent__in', 23 => 'post_parent__not_in', 24 => 'title', 25 => 'fields']; public $extra_query_vars = []; public $query_vars = ['rest_route' => '/custom/v1/contact']; public $query_string = ''; public $request = 'wp-json/custom/v1/contact'; public $matched_rule = '^wp-json/(.*)?'; public $matched_query = 'rest_route=/custom%2Fv1%2Fcontact'; public $did_permalink = TRUE }) C:\wamp64\www\wordpress-ravi\wp-includes\class-wp-hook.php:353
+[11-Sep-2026 08:08:46 UTC] PHP  10. WP_REST_Server->serve_request($path = '/custom/v1/contact') C:\wamp64\www\wordpress-ravi\wp-includes\rest-api.php:488
+[11-Sep-2026 08:08:46 UTC] PHP  11. WP_REST_Server->dispatch($request = class WP_REST_Request { protected $method = 'POST'; protected $params = ['URL' => [...], 'GET' => [...], 'POST' => [...], 'FILES' => [...], 'JSON' => [...], 'defaults' => [...]]; protected $headers = ['authorization' => [...], 'host' => [...], 'connection' => [...], 'content_length' => [...], 'sec_ch_ua_platform' => [...], 'user_agent' => [...], 'sec_ch_ua' => [...], 'content_type' => [...], 'sec_ch_ua_mobile' => [...], 'accept' => [...], 'origin' => [...], 'sec_fetch_site' => [...], 'sec_fetch_mode' => [...], 'sec_fetch_dest' => [...], 'referer' => [...], 'accept_encoding' => [...], 'accept_language' => [...]]; protected $body = '{"name":"jarhou achraf","email":"jarhou06@gmail.com","message":"coucou test email contact"}'; protected $route = '/custom/v1/contact'; protected $attributes = ['methods' => [...], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [...], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true']; protected $parsed_json = TRUE; protected $parsed_body = FALSE }) C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php:441
+[11-Sep-2026 08:08:46 UTC] PHP  12. WP_REST_Server->respond_to_request($request = class WP_REST_Request { protected $method = 'POST'; protected $params = ['URL' => [...], 'GET' => [...], 'POST' => [...], 'FILES' => [...], 'JSON' => [...], 'defaults' => [...]]; protected $headers = ['authorization' => [...], 'host' => [...], 'connection' => [...], 'content_length' => [...], 'sec_ch_ua_platform' => [...], 'user_agent' => [...], 'sec_ch_ua' => [...], 'content_type' => [...], 'sec_ch_ua_mobile' => [...], 'accept' => [...], 'origin' => [...], 'sec_fetch_site' => [...], 'sec_fetch_mode' => [...], 'sec_fetch_dest' => [...], 'referer' => [...], 'accept_encoding' => [...], 'accept_language' => [...]]; protected $body = '{"name":"jarhou achraf","email":"jarhou06@gmail.com","message":"coucou test email contact"}'; protected $route = '/custom/v1/contact'; protected $attributes = ['methods' => [...], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [...], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true']; protected $parsed_json = TRUE; protected $parsed_body = FALSE }, $route = '/custom/v1/contact', $handler = ['methods' => ['POST' => TRUE], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true'], $response = NULL) C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php:1126
+[11-Sep-2026 08:08:46 UTC] PHP  13. handle_contact_form($request = class WP_REST_Request { protected $method = 'POST'; protected $params = ['URL' => [...], 'GET' => [...], 'POST' => [...], 'FILES' => [...], 'JSON' => [...], 'defaults' => [...]]; protected $headers = ['authorization' => [...], 'host' => [...], 'connection' => [...], 'content_length' => [...], 'sec_ch_ua_platform' => [...], 'user_agent' => [...], 'sec_ch_ua' => [...], 'content_type' => [...], 'sec_ch_ua_mobile' => [...], 'accept' => [...], 'origin' => [...], 'sec_fetch_site' => [...], 'sec_fetch_mode' => [...], 'sec_fetch_dest' => [...], 'referer' => [...], 'accept_encoding' => [...], 'accept_language' => [...]]; protected $body = '{"name":"jarhou achraf","email":"jarhou06@gmail.com","message":"coucou test email contact"}'; protected $route = '/custom/v1/contact'; protected $attributes = ['methods' => [...], 'accept_json' => FALSE, 'accept_raw' => FALSE, 'show_in_index' => TRUE, 'args' => [...], 'callback' => 'handle_contact_form', 'permission_callback' => '__return_true']; protected $parsed_json = TRUE; protected $parsed_body = FALSE }) C:\wamp64\www\wordpress-ravi\wp-includes\rest-api\class-wp-rest-server.php:1293
+[11-Sep-2026 08:08:46 UTC] PHP  14. wp_mail($to = 'achraf.jarhou@laplateforme.io', $subject = 'Nouveau message de contact - jarhou achraf', $message = 'Nouveau message reçu:\n\nNom: jarhou achraf\nEmail: jarhou06@gmail.com\nMessage:\ncoucou test email contact\n', $headers = [0 => 'Content-Type: text/plain; charset=UTF-8', 1 => 'From: jarhou achraf <jarhou06@gmail.com>'], $attachments = *uninitialized*, $embeds = *uninitialized*) C:\wamp64\www\wordpress-ravi\wp-content\mu-plugins\contact-form-handler.php:89
+[11-Sep-2026 08:08:46 UTC] PHP  15. PHPMailer\PHPMailer\PHPMailer->send() C:\wamp64\www\wordpress-ravi\wp-includes\pluggable.php:628
+[11-Sep-2026 08:08:46 UTC] PHP  16. PHPMailer\PHPMailer\PHPMailer->postSend() C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:1670
+[11-Sep-2026 08:08:46 UTC] PHP  17. PHPMailer\PHPMailer\PHPMailer->smtpSend($header = 'Date: Fri, 11 Sep 2026 08:06:24 +0000\r\nTo: achraf.jarhou@laplateforme.io\r\nFrom: Ravie <achraf.jarhou@laplateforme.io>\r\nSubject: Nouveau message de contact - jarhou achraf\r\nMessage-ID: <Ka5jh81noZ52doGE5Mg3IJko2XrtkaYp6DYp8KsZOGw@localhost>\r\nX-Mailer: PHPMailer 7.1.1 (https://github.com/PHPMailer/PHPMailer)\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n', $body = 'Nouveau message reçu:\r\n\r\nNom: jarhou achraf\r\nEmail: jarhou06@gmail.com\r\nMessage:\r\ncoucou test email contact\r\n') C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:1855
+[11-Sep-2026 08:08:46 UTC] PHP  18. PHPMailer\PHPMailer\PHPMailer->smtpConnect($options = []) C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:2235
+[11-Sep-2026 08:08:46 UTC] PHP  19. PHPMailer\PHPMailer\SMTP->connect($host = '127.0.0.1', $port = 1025, $timeout = 10, $options = []) C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\PHPMailer.php:2405
+[11-Sep-2026 08:08:46 UTC] PHP  20. PHPMailer\PHPMailer\SMTP->get_lines() C:\wamp64\www\wordpress-ravi\wp-includes\PHPMailer\SMTP.php:379
+[11-Sep-2026 08:10:58 UTC] Contact form received: jarhou (jarhou06@gmail.com)
+[11-Sep-2026 08:10:58 UTC] Message: test email contact
+[11-Sep-2026 08:10:58 UTC] 📧 EMAIL LOGGED:
+[11-Sep-2026 08:10:58 UTC]   To: achraf.jarhou@laplateforme.io
+[11-Sep-2026 08:10:58 UTC]   Subject: Nouveau message de contact - jarhou
+[11-Sep-2026 08:10:58 UTC]   Message: Nouveau message reçu:
+
+Nom: jarhou
+Email: jarhou06@gmail.com
+Message:
+test email contact
+...
+[11-Sep-2026 08:11:01 UTC] 📧 EMAIL LOGGED:
+[11-Sep-2026 08:11:01 UTC]   To: jarhou06@gmail.com
+[11-Sep-2026 08:11:01 UTC]   Subject: Merci pour votre message
+[11-Sep-2026 08:11:01 UTC]   Message: Bonjour,
+
+Merci pour votre message.
+
+Cordialement,
+L'équipe...
+[11-Sep-2026 08:16:19 UTC] 📧 EMAIL LOGGED:
+[11-Sep-2026 08:16:19 UTC]   To: kareen_92@hotmail.fr
+[11-Sep-2026 08:16:19 UTC]   Subject: Confirmation de votre commande n°184
+[11-Sep-2026 08:16:19 UTC]   Message: Bonjour,
+
+Merci pour votre commande !
+
+Numéro de commande: #184
+Date: 11/09/2026 10:16
+Total: <span...
+[11-Sep-2026 08:16:21 UTC] 📧 EMAIL LOGGED:
+[11-Sep-2026 08:16:21 UTC]   To: achraf.jarhou@laplateforme.io
+[11-Sep-2026 08:16:21 UTC]   Subject: Nouvelle commande reçue: #184
+[11-Sep-2026 08:16:21 UTC]   Message: Une nouvelle commande a été reçue.
+
+Numéro de commande: #184
+Client: Karen Castillo
+Email: karee...
+[11-Sep-2026 08:22:51 UTC] 📧 EMAIL LOGGED:
+[11-Sep-2026 08:22:51 UTC]   To: marina@test.com
+[11-Sep-2026 08:22:51 UTC]   Subject: Confirmation de votre commande n°185
+[11-Sep-2026 08:22:51 UTC]   Message: Bonjour,
+
+Merci pour votre commande !
+
+Numéro de commande: #185
+Date: 11/09/2026 10:22
+Total: <span...
+[11-Sep-2026 08:22:53 UTC] 📧 EMAIL LOGGED:
+[11-Sep-2026 08:22:53 UTC]   To: achraf.jarhou@laplateforme.io
+[11-Sep-2026 08:22:53 UTC]   Subject: Nouvelle commande reçue: #185
+[11-Sep-2026 08:22:53 UTC]   Message: Une nouvelle commande a été reçue.
+
+Numéro de commande: #185
+Client: Karen Castillo
+Email: marin...
+[11-Sep-2026 08:24:13 UTC] 📧 EMAIL LOGGED:
+[11-Sep-2026 08:24:13 UTC]   To: marina@test.com
+[11-Sep-2026 08:24:13 UTC]   Subject: Votre commande Ravie est en chemin !
+[11-Sep-2026 08:24:13 UTC]   Message: <!DOCTYPE html>
+<html lang="fr-FR">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; ch...
+[11-Sep-2026 08:24:16 UTC] 📧 EMAIL LOGGED:
+[11-Sep-2026 08:24:16 UTC]   To: achraf.jarhou@laplateforme.io
+[11-Sep-2026 08:24:16 UTC]   Subject: [Ravie] : Vous avez une nouvelle commande n°185
+[11-Sep-2026 08:24:16 UTC]   Message: <!DOCTYPE html>
+<html lang="fr-FR">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; ch...
+[11-Sep-2026 08:31:38 UTC] Contact form received: test (jarhou06@gmail.com)
+[11-Sep-2026 08:31:38 UTC] Message: test envoi email contact
+[11-Sep-2026 08:31:38 UTC] 📧 EMAIL: To=achraf.jarhou@laplateforme.io | Subject=Nouveau message de contact - test
+[11-Sep-2026 08:31:38 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 08:31:39 UTC] 📧 EMAIL: To=jarhou06@gmail.com | Subject=Merci pour votre message
+[11-Sep-2026 08:31:39 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 08:35:56 UTC] 📧 EMAIL: To=jarhou06@gmail.com | Subject=Bienvenue !
+[11-Sep-2026 08:35:56 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 08:39:58 UTC] 📧 EMAIL: To=jarhou06@gmail.com | Subject=Confirmation de votre commande n°186
+[11-Sep-2026 08:39:58 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 08:39:59 UTC] 📧 EMAIL: To=achraf.jarhou@laplateforme.io | Subject=Nouvelle commande reçue: #186
+[11-Sep-2026 08:39:59 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 08:44:07 UTC] 📧 EMAIL: To=jarhou06@gmail.com | Subject=Confirmation de votre commande n°187
+[11-Sep-2026 08:44:07 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 08:44:07 UTC] 📧 EMAIL: To=achraf.jarhou@laplateforme.io | Subject=Nouvelle commande reçue: #187
+[11-Sep-2026 08:44:07 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 09:02:24 UTC] 📧 EMAIL: To=karen@test.com | Subject=Confirmation de votre commande n°188
+[11-Sep-2026 09:02:24 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 09:02:25 UTC] 📧 EMAIL: To=achraf.jarhou@laplateforme.io | Subject=Nouvelle commande reçue: #188
+[11-Sep-2026 09:02:25 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 09:03:26 UTC] 📧 EMAIL: To=karen@test.com | Subject=Votre commande Ravie est en chemin !
+[11-Sep-2026 09:03:26 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 09:03:27 UTC] 📧 EMAIL: To=achraf.jarhou@laplateforme.io | Subject=[Ravie] : Vous avez une nouvelle commande n°188
+[11-Sep-2026 09:03:27 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 09:39:58 UTC] 📧 EMAIL: To=kareen_92@hotmail.fr | Subject=Confirmation de votre commande n°189
+[11-Sep-2026 09:39:58 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 09:40:00 UTC] 📧 EMAIL: To=achraf.jarhou@laplateforme.io | Subject=Nouvelle commande reçue: #189
+[11-Sep-2026 09:40:00 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 09:40:57 UTC] 📧 EMAIL: To=kareen_92@hotmail.fr | Subject=Votre commande Ravie est en chemin !
+[11-Sep-2026 09:40:57 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 09:40:58 UTC] 📧 EMAIL: To=achraf.jarhou@laplateforme.io | Subject=[Ravie] : Vous avez une nouvelle commande n°189
+[11-Sep-2026 09:40:58 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 14:00:31 UTC] Automatic updates starting...
+[11-Sep-2026 14:00:32 UTC]   Automatic plugin updates starting...
+[11-Sep-2026 14:00:32 UTC]   Automatic plugin updates complete.
+[11-Sep-2026 14:00:32 UTC] Automatic updates complete.
+[11-Sep-2026 14:26:41 UTC] 📧 EMAIL: To=kareen_92@hotmail.fr | Subject=Confirmation de votre commande n°190
+[11-Sep-2026 14:26:41 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 14:26:43 UTC] 📧 EMAIL: To=achraf.jarhou@laplateforme.io | Subject=Nouvelle commande reçue: #190
+[11-Sep-2026 14:26:43 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 14:27:16 UTC] 📧 EMAIL: To=kareen_92@hotmail.fr | Subject=Votre commande Ravie est en chemin !
+[11-Sep-2026 14:27:16 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[11-Sep-2026 14:27:17 UTC] 📧 EMAIL: To=achraf.jarhou@laplateforme.io | Subject=[Ravie] : Vous avez une nouvelle commande n°190
+[11-Sep-2026 14:27:17 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[14-Sep-2026 14:34:28 UTC] Automatic updates starting...
+[14-Sep-2026 14:34:29 UTC]   Automatic plugin updates starting...
+[14-Sep-2026 14:34:29 UTC]   Automatic plugin updates complete.
+[14-Sep-2026 14:34:29 UTC] Automatic updates complete.
+[14-Sep-2026 14:36:40 UTC] 📧 EMAIL: To=jarhou06@gmail.com | Subject=Votre commande Ravie est en chemin !
+[14-Sep-2026 14:36:40 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
+[14-Sep-2026 14:36:42 UTC] 📧 EMAIL: To=achraf.jarhou@laplateforme.io | Subject=[Ravie] : Vous avez une nouvelle commande n°187
+[14-Sep-2026 14:36:42 UTC] 📧 Envoi via Gmail SMTP: achraf.jarhou@laplateforme.io
