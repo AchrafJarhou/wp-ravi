@@ -1,9 +1,0 @@
-{
-	order frankenphp first
-	frankenphp
-}
-
-:80
-
-root /app
-encode gzip
