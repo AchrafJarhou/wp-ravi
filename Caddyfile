@@ -1,0 +1,13 @@
+{
+	order frankenphp first
+	frankenphp
+}
+
+:80
+
+root /app
+
+encode gzip
+
+# WordPress pretty permalinks
+try_files {path} {path}/ /index.php?{query}
