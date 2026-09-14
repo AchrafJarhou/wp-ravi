@@ -1,5 +1,4 @@
 # WordPress sensitive files
-wp-config.php
 .env
 .env.local
 .env.*.local
