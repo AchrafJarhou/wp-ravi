@@ -30,3 +30,26 @@ add_filter('rest_allowed_cors_headers', function ($allowed_headers) {
     $allowed_headers[] = 'Authorization';
     return $allowed_headers;
 });
+
+// Ajouter les headers CORS HTTP directement
+add_action('init', function() {
+    $allowed_origins = [
+        'http://localhost:5173',
+        'http://127.0.0.1:5173',
+        'http://10.60.4.51:5173',
+        'https://template-woo-commerce-headless.vercel.app',
+    ];
+
+    $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+
+    if (in_array($origin, $allowed_origins)) {
+        header('Access-Control-Allow-Origin: ' . $origin);
+        header('Access-Control-Allow-Credentials: true');
+        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS, PATCH');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+        exit(0);
+    }
+}, 0);
