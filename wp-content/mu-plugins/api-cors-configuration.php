@@ -20,7 +20,7 @@ add_filter('allowed_http_origins', function ($origins) {
     $origins[] = 'http://192.168.*';
 
     // Frontend Vercel (production)
-    $origins[] = 'https://template-woo-commerce-headless.vercel.app';
+    $origins[] = 'https://template-woo-commerce-headless-3jh7wv8rz.vercel.app';
 
     return $origins;
 });
@@ -37,7 +37,7 @@ add_action('init', function() {
         'http://localhost:5173',
         'http://127.0.0.1:5173',
         'http://10.60.4.51:5173',
-        'https://template-woo-commerce-headless.vercel.app',
+        'https://template-woo-commerce-headless-3jh7wv8rz.vercel.app',
     ];
 
     $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
