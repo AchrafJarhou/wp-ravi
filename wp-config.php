@@ -18,18 +18,20 @@
  * @package WordPress
  */
 
-// ** Database settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define( 'DB_NAME', 'ravie_woocomerce' );
-
-/** Database username */
-define( 'DB_USER', 'root' );
-
-/** Database password */
-define( 'DB_PASSWORD', '' );
-
-/** Database hostname */
-define( 'DB_HOST', 'localhost' );
+// ** Database settings - Auto-detect local vs production ** //
+if ( getenv( 'MYSQL_HOST' ) ) {
+    // Production (Railway)
+    define( 'DB_NAME', getenv( 'MYSQL_DATABASE' ) );
+    define( 'DB_USER', getenv( 'MYSQL_USER' ) );
+    define( 'DB_PASSWORD', getenv( 'MYSQL_PASSWORD' ) );
+    define( 'DB_HOST', getenv( 'MYSQL_HOST' ) . ':' . getenv( 'MYSQL_PORT' ) );
+} else {
+    // Local development
+    define( 'DB_NAME', 'ravie_woocomerce' );
+    define( 'DB_USER', 'root' );
+    define( 'DB_PASSWORD', '' );
+    define( 'DB_HOST', 'localhost' );
+}
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
