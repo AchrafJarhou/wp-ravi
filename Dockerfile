@@ -1,7 +1,9 @@
 FROM php:8.3-fpm
 
 # Update packages and install Nginx + curl (for health check)
-RUN apt-get update && apt-get install -y nginx curl && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y nginx curl && rm -rf /var/lib/apt/lists/* && \
+    mkdir -p /var/run/php-fpm && \
+    chown -R www-data:www-data /var/run/php-fpm
 
 # Install PHP extensions
 RUN docker-php-ext-install mysqli pdo_mysql
