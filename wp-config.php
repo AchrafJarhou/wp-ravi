@@ -121,8 +121,6 @@ $allowed_origins = [
 ];
 
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
-$debug = "origin=$origin | allowed=" . json_encode($allowed_origins) . " | in_array=" . (in_array($origin, $allowed_origins, true) ? 'YES' : 'NO');
-echo "<!-- DEBUG: $debug -->";
 
 if (in_array($origin, $allowed_origins, true)) {
     header('Access-Control-Allow-Origin: ' . $origin);
