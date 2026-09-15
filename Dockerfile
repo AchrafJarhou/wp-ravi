@@ -12,17 +12,17 @@ RUN docker-php-ext-install mysqli pdo_mysql
 COPY . /var/www/html
 
 # Copy configurations
-COPY nginx.conf /etc/nginx/nginx.conf
 COPY php-fpm.conf /usr/local/etc/php-fpm.conf
 COPY supervisord.conf /etc/supervisord.conf
+COPY entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 WORKDIR /var/www/html
 
-# Health check - test if Nginx is responding
+# Health check - test if Nginx is responding on PORT
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
-  CMD curl -f http://localhost/health || exit 1
+  CMD curl -f http://localhost:${PORT:-8080}/health || exit 1
 
-EXPOSE 80
+EXPOSE 8080
 
-# Run with supervisord
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
