@@ -33,7 +33,7 @@ http {
     gzip on;
 
     upstream php_fpm {
-        server unix:/var/run/php-fpm/www.sock;
+        server unix:/var/run/php-fpm.sock;
     }
 
     server {
@@ -69,15 +69,5 @@ http {
 EOF
 
 echo "Nginx config created for port $PORT"
-
-# Ensure php-fpm socket directory exists
-mkdir -p /var/run/php-fpm
-chown www-data:www-data /var/run/php-fpm
-chmod 755 /var/run/php-fpm
-
 echo "Starting supervisord..."
-echo "PHP-FPM config:"
-cat /usr/local/etc/php-fpm.conf | grep -E "^listen|^user|^group|^error_log|^access_log"
-echo ""
-
 exec /usr/bin/supervisord -c /etc/supervisord.conf
