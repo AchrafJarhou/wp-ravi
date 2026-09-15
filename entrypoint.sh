@@ -47,34 +47,6 @@ http {
             add_header Content-Type text/plain;
         }
 
-        location = /test.php {
-            try_files \$uri =404;
-            fastcgi_pass php_fpm;
-            fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-            fastcgi_param QUERY_STRING \$query_string;
-        }
-
-        location = /test-simple.php {
-            try_files \$uri =404;
-            fastcgi_pass php_fpm;
-            fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-            fastcgi_param QUERY_STRING \$query_string;
-        }
-
-        location = /debug-cors.php {
-            try_files \$uri =404;
-            fastcgi_pass php_fpm;
-            fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-            fastcgi_param QUERY_STRING \$query_string;
-        }
-
-        location = /simple-test.php {
-            try_files \$uri =404;
-            fastcgi_pass php_fpm;
-            fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-            fastcgi_param QUERY_STRING \$query_string;
-        }
-
         location / {
             try_files \$uri \$uri/ /index.php?\$args;
         }
@@ -82,8 +54,10 @@ http {
         location ~ \.php\$ {
             try_files \$uri =404;
             fastcgi_pass php_fpm;
+            fastcgi_index index.php;
+            include fastcgi_params;
             fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-            fastcgi_param QUERY_STRING \$query_string;
+            fastcgi_param SCRIPT_NAME \$fastcgi_script_name;
         }
     }
 }
