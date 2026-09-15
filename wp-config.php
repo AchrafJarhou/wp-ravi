@@ -109,6 +109,10 @@ if ($_SERVER['HTTP_HOST'] === '10.60.4.51' || $_SERVER['HTTP_HOST'] === 'localho
     // Railway uses HTTP on port 8080
     define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST']);
     define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST']);
+    // Force HTTP for Railway - no SSL redirects
+    $_SERVER['HTTPS'] = 'off';
+    define('FORCE_SSL_ADMIN', false);
+    define('FORCE_SSL_LOGIN', false);
 } else {
     // Production
     define('WP_HOME', 'https://' . $_SERVER['HTTP_HOST']);
