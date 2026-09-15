@@ -111,6 +111,13 @@ if ($_SERVER['HTTP_HOST'] === '10.60.4.51' || $_SERVER['HTTP_HOST'] === 'localho
     define('WP_SITEURL', 'https://' . $_SERVER['HTTP_HOST']);
 }
 
+// Augmenter les limites d'upload pour All-in-One WP Migration
+define('WP_MEMORY_LIMIT', '256M');
+define('WP_MAX_MEMORY_LIMIT', '512M');
+@ini_set('upload_max_filesize', '300M');
+@ini_set('post_max_size', '300M');
+@ini_set('max_execution_time', '300');
+
 /* That's all, stop editing! Happy publishing. */
 
 // CORS Headers - send before WordPress starts
