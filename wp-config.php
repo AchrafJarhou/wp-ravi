@@ -121,7 +121,12 @@ $allowed_origins = [
 ];
 
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+error_log('DEBUG CORS: origin=' . $origin);
+error_log('DEBUG CORS: allowed_origins=' . json_encode($allowed_origins));
+error_log('DEBUG CORS: in_array=' . (in_array($origin, $allowed_origins, true) ? 'TRUE' : 'FALSE'));
+
 if (in_array($origin, $allowed_origins, true)) {
+    error_log('DEBUG CORS: Sending CORS headers for origin=' . $origin);
     header('Access-Control-Allow-Origin: ' . $origin);
     header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS, PATCH');
     header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, Cart-Token, Nonce');
@@ -132,6 +137,8 @@ if (in_array($origin, $allowed_origins, true)) {
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
         exit();
     }
+} else {
+    error_log('DEBUG CORS: Origin NOT in allowed list');
 }
 
 /** Absolute path to the WordPress directory. */
