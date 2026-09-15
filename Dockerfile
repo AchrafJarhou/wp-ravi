@@ -18,9 +18,9 @@ COPY supervisord.conf /etc/supervisord.conf
 
 WORKDIR /var/www/html
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost/wp-json/ || exit 1
+# Health check - test if Nginx is responding
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+  CMD curl -f http://localhost/health || exit 1
 
 EXPOSE 80
 
