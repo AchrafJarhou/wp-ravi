@@ -12,11 +12,19 @@ $allowed_origins = [
 
 $is_allowed = in_array($origin, $allowed_origins, true);
 
+// Get some important headers from $_SERVER
+$important_headers = [];
+foreach ($_SERVER as $key => $value) {
+    if (strpos($key, 'HTTP_') === 0) {
+        $important_headers[$key] = $value;
+    }
+}
+
 header('Content-Type: application/json');
 echo json_encode([
     'origin' => $origin,
     'is_allowed' => $is_allowed,
     'allowed_origins' => $allowed_origins,
     'method' => $_SERVER['REQUEST_METHOD'],
-    'all_headers' => getallheaders(),
+    'server_headers' => $important_headers,
 ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
