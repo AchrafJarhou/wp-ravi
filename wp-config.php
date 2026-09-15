@@ -1,4 +1,4 @@
-<?php
+dep<?php
 /**
  * The base configuration for WordPress
  *
@@ -118,6 +118,8 @@ $allowed_origins = [
     'https://template-woo-commerce-headless.vercel.app/',
     'https://template-woo-commerce-headless-3jh7wv8rz.vercel.app',
     'https://template-woo-commerce-headless-3jh7wv8rz.vercel.app/',
+    'https://template-woo-commerce-headless-h3brqgit6.vercel.app',
+    'https://template-woo-commerce-headless-h3brqgit6.vercel.app/',
 ];
 
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
