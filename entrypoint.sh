@@ -68,6 +68,13 @@ http {
             fastcgi_param QUERY_STRING \$query_string;
         }
 
+        location = /simple-test.php {
+            try_files \$uri =404;
+            fastcgi_pass php_fpm;
+            fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+            fastcgi_param QUERY_STRING \$query_string;
+        }
+
         location / {
             try_files \$uri \$uri/ /index.php?\$args;
         }
