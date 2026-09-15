@@ -105,6 +105,10 @@ define('WP_DEBUG_DISPLAY', false);
 if ($_SERVER['HTTP_HOST'] === '10.60.4.51' || $_SERVER['HTTP_HOST'] === 'localhost') {
     define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress-ravi');
     define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress-ravi');
+} else {
+    // Production
+    define('WP_HOME', 'https://' . $_SERVER['HTTP_HOST']);
+    define('WP_SITEURL', 'https://' . $_SERVER['HTTP_HOST']);
 }
 
 /* That's all, stop editing! Happy publishing. */
