@@ -1,13 +1,27 @@
-FROM dunglas/frankenphp:latest-php8.3
+FROM php:8.3-fpm
 
-# Installer les extensions PHP nécessaires pour WordPress
+# Update packages and install Nginx + curl (for health check)
+RUN apt-get update && apt-get install -y nginx curl && rm -rf /var/lib/apt/lists/*
+
+# Install PHP extensions
 RUN docker-php-ext-install mysqli pdo_mysql
 
-# Copier les fichiers WordPress
-COPY . /app
+# Copy WordPress files
+COPY . /var/www/html
 
-# Copier la configuration Caddy
-COPY Caddyfile /etc/caddy/Caddyfile
+# Copy Nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Répertoire de travail
-WORKDIR /app
+# Copy PHP-FPM configuration
+COPY php-fpm.conf /usr/local/etc/php-fpm.conf
+
+WORKDIR /var/www/html
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost/wp-json/ || exit 1
+
+EXPOSE 80
+
+# Start both PHP-FPM and Nginx
+CMD ["sh", "-c", "php-fpm -D && nginx -g 'daemon off;'"]
