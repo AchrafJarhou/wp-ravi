@@ -102,21 +102,28 @@ define('WP_DEBUG_DISPLAY', false);
 /* Add any custom values between this line and the "stop editing" line. */
 
 // Accepte localhost ET l'IP du réseau
-if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false || strpos($_SERVER['HTTP_HOST'], '10.60.4.51') !== false) {
-    define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress-ravi');
-    define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress-ravi');
-} elseif (strpos($_SERVER['HTTP_HOST'], 'railway.app') !== false) {
-    // Railway - forcer HTTPS
-    $host = preg_replace('/:\d+$/', '', $_SERVER['HTTP_HOST']);
-    define('WP_HOME', 'https://' . $host);
-    define('WP_SITEURL', 'https://' . $host);
-    $_SERVER['HTTPS'] = 'on';
-    define('FORCE_SSL_ADMIN', false);
-    define('FORCE_SSL_LOGIN', false);
+$http_host = $_SERVER['HTTP_HOST'] ?? '';
+if (!empty($http_host)) {
+    if (strpos($http_host, 'localhost') !== false || strpos($http_host, '10.60.4.51') !== false) {
+        define('WP_HOME', 'http://' . $http_host . '/wordpress-ravi');
+        define('WP_SITEURL', 'http://' . $http_host . '/wordpress-ravi');
+    } elseif (strpos($http_host, 'railway.app') !== false) {
+        // Railway - forcer HTTPS
+        $host = preg_replace('/:\d+$/', '', $http_host);
+        define('WP_HOME', 'https://' . $host);
+        define('WP_SITEURL', 'https://' . $host);
+        $_SERVER['HTTPS'] = 'on';
+        define('FORCE_SSL_ADMIN', false);
+        define('FORCE_SSL_LOGIN', false);
+    } else {
+        // Production
+        define('WP_HOME', 'https://' . $http_host);
+        define('WP_SITEURL', 'https://' . $http_host);
+    }
 } else {
-    // Production
-    define('WP_HOME', 'https://' . $_SERVER['HTTP_HOST']);
-    define('WP_SITEURL', 'https://' . $_SERVER['HTTP_HOST']);
+    // Fallback quand HTTP_HOST n'est pas disponible (WP-CLI, etc.)
+    define('WP_HOME', 'https://wp-ravi-production.up.railway.app');
+    define('WP_SITEURL', 'https://wp-ravi-production.up.railway.app');
 }
 
 // Augmenter les limites d'upload pour All-in-One WP Migration
