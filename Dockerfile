@@ -8,6 +8,12 @@ RUN apt-get update && apt-get install -y nginx supervisor curl && rm -rf /var/li
 # Install PHP extensions
 RUN docker-php-ext-install mysqli pdo_mysql
 
+# Configure PHP for large uploads (All-in-One WP Migration)
+RUN echo "upload_max_filesize = 300M" > /usr/local/etc/php/conf.d/uploads.ini && \
+    echo "post_max_size = 300M" >> /usr/local/etc/php/conf.d/uploads.ini && \
+    echo "max_execution_time = 300" >> /usr/local/etc/php/conf.d/uploads.ini && \
+    echo "max_input_time = 300" >> /usr/local/etc/php/conf.d/uploads.ini
+
 # Install WP-CLI
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     chmod +x wp-cli.phar && \
