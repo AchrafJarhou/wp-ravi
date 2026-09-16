@@ -1,7 +1,7 @@
 FROM php:8.3-fpm
 
-# Update packages and install Nginx + supervisord + curl (for health check)
-RUN apt-get update && apt-get install -y nginx supervisor curl && rm -rf /var/lib/apt/lists/* && \
+# Update packages and install Nginx + supervisord + curl + libzip (for health check)
+RUN apt-get update && apt-get install -y nginx supervisor curl libzip-dev git && rm -rf /var/lib/apt/lists/* && \
     mkdir -p /var/run/php-fpm /var/log/nginx /var/log/supervisor && \
     chown -R www-data:www-data /var/run/php-fpm /var/log/nginx
 
