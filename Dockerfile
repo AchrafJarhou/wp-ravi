@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y nginx supervisor curl && rm -rf /var/li
     chown -R www-data:www-data /var/run/php-fpm /var/log/nginx
 
 # Install PHP extensions
-RUN docker-php-ext-install mysqli pdo_mysql
+RUN docker-php-ext-install mysqli pdo_mysql zip
 
 # Configure PHP for large uploads (All-in-One WP Migration)
 RUN echo "upload_max_filesize = 300M" > /usr/local/etc/php/conf.d/uploads.ini && \
