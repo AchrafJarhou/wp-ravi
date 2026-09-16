@@ -2,22 +2,30 @@
 /**
  * Plugin Name: WooCommerce Public API
  * Description: Allow public REST API access to WooCommerce products
- * Version: 1.0
+ * Version: 1.1
  */
 
-add_filter('rest_authentication_errors', function($result) {
-	if (! empty($result)) {
-		return $result;
-	}
+add_filter('rest_authentication_errors', function($error) {
+	// If user is logged in, always allow
 	if (is_user_logged_in()) {
-		return $result;
+		return $error;
 	}
-	global $wp;
-	if (isset($wp->query_vars['rest_route'])) {
-		$route = $wp->query_vars['rest_route'];
-		if (strpos($route, '/wc/') === 0 && strpos($route, '/products') !== false) {
-			return null;
+
+	// Get the REST request
+	if (function_exists('rest_get_server')) {
+		$server = rest_get_server();
+		$request = $server->last_request;
+
+		if ($request) {
+			$route = $request->get_route();
+			$method = $request->get_method();
+
+			// Allow public GET access to WooCommerce products
+			if (preg_match('#^/wc(-admin)?/.*products#', $route) && $method === 'GET') {
+				return null;
+			}
 		}
 	}
-	return $result;
-}, 10, 1);
+
+	return $error;
+}, 15, 1);
