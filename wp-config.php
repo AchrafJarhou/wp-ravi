@@ -114,14 +114,14 @@ if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false || strpos($_SERVER['HTT
     define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress-ravi');
     define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress-ravi');
 } elseif (strpos($_SERVER['HTTP_HOST'], 'railway.app') !== false) {
-    // Railway avec reverse proxy HTTPS
+    // Railway avec reverse proxy HTTPS - forcer HTTPS
     $host = $_SERVER['HTTP_HOST'];
     // Enlever le port s'il existe (Railway ajoute :8080 ou autre)
     $host = preg_replace('/:\d+$/', '', $host);
-    define('WP_HOME', $protocol . '://' . $host);
-    define('WP_SITEURL', $protocol . '://' . $host);
-    define('FORCE_SSL_ADMIN', false);
-    define('FORCE_SSL_LOGIN', false);
+    define('WP_HOME', 'https://' . $host);
+    define('WP_SITEURL', 'https://' . $host);
+    define('FORCE_SSL_ADMIN', true);
+    define('FORCE_SSL_LOGIN', true);
 } else {
     // Production par défaut
     define('WP_HOME', $protocol . '://' . $_SERVER['HTTP_HOST']);
