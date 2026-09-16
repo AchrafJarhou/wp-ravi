@@ -26,6 +26,7 @@ install_plugins() {
   /usr/local/bin/wp plugin install akismet --activate --allow-root 2>/dev/null || true
   /usr/local/bin/wp plugin install jetpack --activate --allow-root 2>/dev/null || true
   /usr/local/bin/wp plugin install woo-stripe-payment --activate --allow-root 2>/dev/null || true
+  /usr/local/bin/wp plugin install jwt-authentication-for-rest-api --activate --allow-root 2>/dev/null || true
   echo "Plugins installation complete"
 }
 
