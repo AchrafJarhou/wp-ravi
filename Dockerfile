@@ -20,20 +20,14 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     chmod +x wp-cli.phar && \
     mv wp-cli.phar /usr/local/bin/wp
 
-# Download JWT Auth plugin from GitHub
-RUN mkdir -p /tmp/jwt-auth && \
-    cd /tmp/jwt-auth && \
-    curl -L https://github.com/usefulteam/jwt-auth/archive/refs/heads/master.zip -o jwt-auth.zip && \
-    unzip -q jwt-auth.zip && \
-    rm jwt-auth.zip && \
-    mv jwt-auth-master /tmp/jwt-auth-plugin
-
 # Copy WordPress files
 COPY . /var/www/html
 
-# Copy JWT Auth plugin to plugins directory
-RUN cp -r /tmp/jwt-auth-plugin /var/www/html/wp-content/plugins/jwt-auth && \
-    rm -rf /tmp/jwt-auth*
+# Download JWT Auth plugin from GitHub into plugins directory
+RUN cd /var/www/html/wp-content/plugins && \
+    git clone --depth 1 https://github.com/usefulteam/jwt-auth.git jwt-auth 2>/dev/null || \
+    (mkdir -p jwt-auth && cd jwt-auth && \
+    curl -sSL https://api.github.com/repos/usefulteam/jwt-auth/tarball/master | tar xz --strip-components=1)
 
 # Set permissions for Nginx and PHP-FPM
 RUN chown -R www-data:www-data /var/www/html && \
