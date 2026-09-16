@@ -16,19 +16,21 @@ PORT=${PORT:-8080}
 
 echo "Starting with PORT=$PORT"
 
-# Wait for WordPress to be ready, then install essential plugins
-sleep 5
-echo "Installing essential WooCommerce plugins..."
-cd /var/www/html
+# Function to install plugins after WordPress is ready
+install_plugins() {
+  sleep 15
+  cd /var/www/html
+  echo "Installing essential WooCommerce plugins..."
+  /usr/local/bin/wp plugin install woocommerce --activate --allow-root 2>/dev/null || true
+  /usr/local/bin/wp plugin install advanced-custom-fields --activate --allow-root 2>/dev/null || true
+  /usr/local/bin/wp plugin install akismet --activate --allow-root 2>/dev/null || true
+  /usr/local/bin/wp plugin install jetpack --activate --allow-root 2>/dev/null || true
+  /usr/local/bin/wp plugin install woo-stripe-payment --activate --allow-root 2>/dev/null || true
+  echo "Plugins installation complete"
+}
 
-# Install plugins with WP-CLI
-/usr/local/bin/wp plugin install woocommerce --activate --allow-root 2>/dev/null || true
-/usr/local/bin/wp plugin install advanced-custom-fields --activate --allow-root 2>/dev/null || true
-/usr/local/bin/wp plugin install akismet --activate --allow-root 2>/dev/null || true
-/usr/local/bin/wp plugin install jetpack --activate --allow-root 2>/dev/null || true
-/usr/local/bin/wp plugin install woo-stripe-payment --activate --allow-root 2>/dev/null || true
-
-echo "Plugins installation complete"
+# Run plugin installation in background
+install_plugins &
 
 # Create nginx config with dynamic port
 cat > /etc/nginx/nginx.conf <<EOF
