@@ -101,32 +101,22 @@ define('WP_DEBUG_DISPLAY', false);
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-// Déterminer le protocole avec support pour reverse proxy (Railway)
-$protocol = 'http';
-if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
-    $protocol = $_SERVER['HTTP_X_FORWARDED_PROTO'];
-} elseif (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
-    $protocol = 'https';
-}
-
 // Accepte localhost ET l'IP du réseau
 if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false || strpos($_SERVER['HTTP_HOST'], '10.60.4.51') !== false) {
     define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress-ravi');
     define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress-ravi');
 } elseif (strpos($_SERVER['HTTP_HOST'], 'railway.app') !== false) {
-    // Railway avec reverse proxy - utiliser le protocole détecté
-    $host = $_SERVER['HTTP_HOST'];
-    // Enlever le port s'il existe
-    $host = preg_replace('/:\d+$/', '', $host);
-    define('WP_HOME', $protocol . '://' . $host);
-    define('WP_SITEURL', $protocol . '://' . $host);
-    // Désactiver les redirects SSL pour éviter les boucles
+    // Railway - forcer HTTPS
+    $host = preg_replace('/:\d+$/', '', $_SERVER['HTTP_HOST']);
+    define('WP_HOME', 'https://' . $host);
+    define('WP_SITEURL', 'https://' . $host);
+    $_SERVER['HTTPS'] = 'on';
     define('FORCE_SSL_ADMIN', false);
     define('FORCE_SSL_LOGIN', false);
 } else {
-    // Production par défaut
-    define('WP_HOME', $protocol . '://' . $_SERVER['HTTP_HOST']);
-    define('WP_SITEURL', $protocol . '://' . $_SERVER['HTTP_HOST']);
+    // Production
+    define('WP_HOME', 'https://' . $_SERVER['HTTP_HOST']);
+    define('WP_SITEURL', 'https://' . $_SERVER['HTTP_HOST']);
 }
 
 // Augmenter les limites d'upload pour All-in-One WP Migration
