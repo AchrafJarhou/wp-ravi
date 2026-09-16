@@ -20,6 +20,9 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     chmod +x wp-cli.phar && \
     mv wp-cli.phar /usr/local/bin/wp
 
+# Install Composer
+RUN curl -sSL https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 # Copy WordPress files
 COPY . /var/www/html
 
@@ -27,7 +30,9 @@ COPY . /var/www/html
 RUN cd /var/www/html/wp-content/plugins && \
     git clone --depth 1 https://github.com/usefulteam/jwt-auth.git jwt-auth 2>/dev/null || \
     (mkdir -p jwt-auth && cd jwt-auth && \
-    curl -sSL https://api.github.com/repos/usefulteam/jwt-auth/tarball/master | tar xz --strip-components=1)
+    curl -sSL https://api.github.com/repos/usefulteam/jwt-auth/tarball/master | tar xz --strip-components=1) && \
+    cd jwt-auth && \
+    composer install --no-dev --optimize-autoloader
 
 # Set permissions for Nginx and PHP-FPM
 RUN chown -R www-data:www-data /var/www/html && \
