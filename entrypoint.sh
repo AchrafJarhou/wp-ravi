@@ -28,18 +28,9 @@ install_plugins() {
   /usr/local/bin/wp plugin install jetpack --activate --allow-root
   /usr/local/bin/wp plugin install woo-stripe-payment --activate --allow-root
 
-  # Install JWT Auth with retry (more critical)
-  for i in 1 2 3; do
-    echo "Installing JWT Auth plugin (attempt $i)..."
-    if /usr/local/bin/wp plugin install jwt-authentication-for-rest-api --activate --allow-root; then
-      echo "JWT Auth plugin installed successfully"
-      break
-    fi
-    if [ $i -lt 3 ]; then
-      echo "JWT Auth install failed, retrying in 10 seconds..."
-      sleep 10
-    fi
-  done
+  # Activate JWT Auth (already in Dockerfile)
+  echo "Activating JWT Auth plugin..."
+  /usr/local/bin/wp plugin activate jwt-auth --allow-root || true
   echo "Plugins installation complete"
 }
 
