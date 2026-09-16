@@ -28,7 +28,7 @@ http {
     default_type application/octet-stream;
 
     access_log /proc/self/fd/1;
-    error_log /proc/self/fd/2 warn;
+    error_log /proc/self/fd/2 debug;
 
     gzip on;
 
@@ -40,6 +40,8 @@ http {
         listen $PORT;
         server_name _;
         root /var/www/html;
+        index index.php index.html index.htm;
+        autoindex off;
 
         location = /health {
             access_log off;
@@ -48,7 +50,7 @@ http {
         }
 
         location / {
-            try_files \$uri \$uri/ /index.php?\$args;
+            try_files \$uri \$uri/ /index.php\$is_args\$args;
         }
 
         location ~ \.php\$ {
