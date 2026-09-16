@@ -75,6 +75,16 @@ http {
             add_header Content-Type text/plain;
         }
 
+        location ~ ^/wp-content/uploads/ {
+            add_header 'Access-Control-Allow-Origin' '*' always;
+            add_header 'Access-Control-Allow-Methods' 'GET, HEAD, OPTIONS' always;
+            add_header 'Access-Control-Allow-Headers' 'Content-Type, Authorization' always;
+            add_header 'Access-Control-Max-Age' '86400' always;
+            if (\$request_method = 'OPTIONS') {
+                return 204;
+            }
+        }
+
         location / {
             try_files \$uri \$uri/ /index.php\$is_args\$args;
         }
