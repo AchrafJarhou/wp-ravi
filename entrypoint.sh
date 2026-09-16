@@ -1,6 +1,15 @@
 #!/bin/bash
 set -e
 
+# Fix permissions for WordPress directories
+echo "Fixing file permissions..."
+chown -R www-data:www-data /var/www/html
+chmod -R 755 /var/www/html
+chmod -R 775 /var/www/html/wp-content
+chmod -R 775 /var/www/html/wp-content/uploads
+chmod -R 775 /var/www/html/wp-content/themes
+chmod -R 775 /var/www/html/wp-content/plugins
+
 # Use PORT environment variable if set, otherwise default to 8080
 PORT=${PORT:-8080}
 
