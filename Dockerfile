@@ -26,13 +26,8 @@ RUN curl -sSL https://getcomposer.org/installer | php -- --install-dir=/usr/loca
 # Copy WordPress files
 COPY . /var/www/html
 
-# Download JWT Auth plugin from GitHub into plugins directory
-RUN cd /var/www/html/wp-content/plugins && \
-    git clone --depth 1 https://github.com/usefulteam/jwt-auth.git jwt-auth 2>/dev/null || \
-    (mkdir -p jwt-auth && cd jwt-auth && \
-    curl -sSL https://api.github.com/repos/usefulteam/jwt-auth/tarball/master | tar xz --strip-components=1) && \
-    cd jwt-auth && \
-    composer install --no-dev --optimize-autoloader
+# Copy JWT Auth plugin from local (already included in the repo)
+# Plugin directory: wp-content/plugins/jwt-authentication-for-wp-rest-api
 
 # Set permissions for Nginx and PHP-FPM
 RUN chown -R www-data:www-data /var/www/html && \

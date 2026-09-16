@@ -28,9 +28,9 @@ install_plugins() {
   /usr/local/bin/wp plugin install jetpack --activate --allow-root
   /usr/local/bin/wp plugin install woo-stripe-payment --activate --allow-root
 
-  # Activate JWT Auth (already in Dockerfile)
+  # Activate JWT Auth plugin
   echo "Activating JWT Auth plugin..."
-  /usr/local/bin/wp plugin activate jwt-auth --allow-root || true
+  /usr/local/bin/wp plugin activate jwt-authentication-for-wp-rest-api --allow-root
   echo "Plugins installation complete"
 }
 
