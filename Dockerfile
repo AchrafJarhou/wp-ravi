@@ -8,6 +8,11 @@ RUN apt-get update && apt-get install -y nginx supervisor curl && rm -rf /var/li
 # Install PHP extensions
 RUN docker-php-ext-install mysqli pdo_mysql
 
+# Install WP-CLI
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
+    chmod +x wp-cli.phar && \
+    mv wp-cli.phar /usr/local/bin/wp
+
 # Copy WordPress files
 COPY . /var/www/html
 
