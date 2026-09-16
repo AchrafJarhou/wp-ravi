@@ -161,28 +161,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', __DIR__ . '/' );
 }
 
-// Allow public REST API access for WooCommerce products
-add_filter('woocommerce_rest_prepare_product_object', function($response, $product, $request) {
-	if ('GET' === $request->get_method()) {
-		return $response;
-	}
-	return $response;
-}, 10, 3);
-
-add_filter('rest_authentication_errors', function($result) {
-	if (! empty($result)) {
-		return $result;
-	}
-	if (is_user_logged_in()) {
-		return $result;
-	}
-	global $wp;
-	if (strpos($wp->request, 'wc/v3/products') === 0 || strpos($wp->request, 'wc/v2/products') === 0) {
-		return null;
-	}
-	return $result;
-});
-
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
 
