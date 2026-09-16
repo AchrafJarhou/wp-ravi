@@ -3,13 +3,14 @@ set -e
 
 # Fix permissions for WordPress directories
 echo "Fixing file permissions..."
-mkdir -p /var/www/html/wp-content/uploads /var/www/html/wp-content/themes /var/www/html/wp-content/plugins
+mkdir -p /var/www/html/wp-content/uploads /var/www/html/wp-content/themes /var/www/html/wp-content/plugins /var/www/html/wp-content/upgrade
 chown -R www-data:www-data /var/www/html
 chmod -R 755 /var/www/html
 chmod -R 775 /var/www/html/wp-content
 chmod -R 775 /var/www/html/wp-content/uploads
 chmod -R 775 /var/www/html/wp-content/themes
 chmod -R 775 /var/www/html/wp-content/plugins
+chmod -R 775 /var/www/html/wp-content/upgrade
 
 # Use PORT environment variable if set, otherwise default to 8080
 PORT=${PORT:-8080}
