@@ -3,6 +3,7 @@ set -e
 
 # Fix permissions for WordPress directories
 echo "Fixing file permissions..."
+mkdir -p /var/www/html/wp-content/uploads /var/www/html/wp-content/themes /var/www/html/wp-content/plugins
 chown -R www-data:www-data /var/www/html
 chmod -R 755 /var/www/html
 chmod -R 775 /var/www/html/wp-content
