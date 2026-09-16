@@ -56,7 +56,7 @@ http {
     default_type application/octet-stream;
 
     access_log /proc/self/fd/1;
-    error_log /proc/self/fd/2 debug;
+    error_log /proc/self/fd/2 warn;
 
     gzip on;
 
