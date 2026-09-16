@@ -16,6 +16,11 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 # Copy WordPress files
 COPY . /var/www/html
 
+# Set permissions for Nginx and PHP-FPM
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 755 /var/www/html && \
+    chmod -R 775 /var/www/html/wp-content
+
 # Copy configurations
 COPY php-fpm.conf /usr/local/etc/php-fpm.conf
 COPY supervisord.conf /etc/supervisord.conf
