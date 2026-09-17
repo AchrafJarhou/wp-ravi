@@ -1,25 +1,30 @@
 <?php
 /**
- * SendGrid Email Mailer for Production
- * Uses SendGrid API in production (Railway), Gmail SMTP in development
+ * Brevo Email Mailer for Production
+ * Uses Brevo API in production (Railway), Gmail SMTP in development
+ * No DNS required - simple API-based solution
  */
 
 if (!defined('ABSPATH')) {
     exit;
 }
 
-// Check if SendGrid is configured (production)
-$use_sendgrid = defined('SENDGRID_API_KEY') && !empty(SENDGRID_API_KEY);
+error_log('🔍 BREVO MAILER: Checking if configured...');
 
-if ($use_sendgrid) {
-    error_log('🚀 SendGrid mailer activated');
+// Check if Brevo is configured (production)
+$use_brevo = defined('BREVO_API_KEY') && !empty(BREVO_API_KEY);
+error_log('BREVO_API_KEY defined: ' . (defined('BREVO_API_KEY') ? 'YES' : 'NO'));
+error_log('BREVO_API_KEY empty: ' . (empty(BREVO_API_KEY) ? 'YES (EMPTY)' : 'NO (HAS VALUE)'));
 
-    // Production: Use SendGrid API
+if ($use_brevo) {
+    error_log('🚀 Brevo mailer activated');
+
+    // Production: Use Brevo API
     add_filter('wp_mail', function($atts) {
-        $sendgrid_key = defined('SENDGRID_API_KEY') ? SENDGRID_API_KEY : '';
+        $brevo_key = defined('BREVO_API_KEY') ? BREVO_API_KEY : '';
 
-        if (empty($sendgrid_key)) {
-            error_log('❌ SENDGRID: API key not found');
+        if (empty($brevo_key)) {
+            error_log('❌ BREVO: API key not found');
             return $atts;
         }
 
@@ -28,9 +33,9 @@ if ($use_sendgrid) {
         $message = $atts['message'];
         $headers = isset($atts['headers']) ? $atts['headers'] : '';
 
-        error_log('🚀 SENDGRID: Attempting to send email to ' . $to);
+        error_log('🚀 BREVO: Attempting to send email to ' . $to);
 
-        // Use verified SendGrid sender address (must be verified in SendGrid)
+        // Use verified Brevo sender address
         $from_email = 'jarhou06@gmail.com';
         $from_name = 'Ravi';
 
@@ -46,34 +51,25 @@ if ($use_sendgrid) {
             }
         }
 
-        // Prepare SendGrid API request
+        // Prepare Brevo API request
         $body = array(
-            'personalizations' => array(
-                array(
-                    'to' => array(
-                        array(
-                            'email' => $to
-                        )
-                    ),
-                    'subject' => $subject
-                )
-            ),
-            'from' => array(
+            'sender' => array(
                 'email' => $from_email,
                 'name' => $from_name
             ),
-            'content' => array(
+            'to' => array(
                 array(
-                    'type' => 'text/html',
-                    'value' => $message
+                    'email' => $to
                 )
-            )
+            ),
+            'subject' => $subject,
+            'htmlContent' => $message
         );
 
-        $response = wp_remote_post('https://api.sendgrid.com/v3/mail/send', array(
+        $response = wp_remote_post('https://api.brevo.com/v3/smtp/email', array(
             'method' => 'POST',
             'headers' => array(
-                'Authorization' => 'Bearer ' . $sendgrid_key,
+                'api-key' => $brevo_key,
                 'Content-Type' => 'application/json'
             ),
             'body' => json_encode($body),
@@ -81,17 +77,17 @@ if ($use_sendgrid) {
         ));
 
         if (is_wp_error($response)) {
-            error_log('❌ SENDGRID ERROR: ' . $response->get_error_message());
+            error_log('❌ BREVO ERROR: ' . $response->get_error_message());
             return $atts;
         }
 
         $http_code = wp_remote_retrieve_response_code($response);
-        if ($http_code === 202) {
-            error_log('✅ SENDGRID: Email sent successfully to ' . $to);
+        if ($http_code === 201) {
+            error_log('✅ BREVO: Email sent successfully to ' . $to);
             return $atts;
         } else {
             $body = wp_remote_retrieve_body($response);
-            error_log('❌ SENDGRID ERROR (' . $http_code . '): ' . $body);
+            error_log('❌ BREVO ERROR (' . $http_code . '): ' . $body);
             return $atts;
         }
     }, 1000);

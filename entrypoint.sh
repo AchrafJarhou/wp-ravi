@@ -10,9 +10,12 @@ DB_NAME=${DB_NAME:-ravie_woocomerce}
 DB_USER=${DB_USER:-root}
 DB_PASSWORD=${DB_PASSWORD:-}
 
-# Gmail SMTP
+# Gmail SMTP (Development)
 GMAIL_USERNAME=${GMAIL_USERNAME:-achraf.jarhou@laplateforme.io}
 GMAIL_PASSWORD=${GMAIL_PASSWORD:-}
+
+# Brevo API (Production)
+BREVO_API_KEY=${BREVO_API_KEY:-}
 
 # WordPress
 WP_DEBUG=true

@@ -28,8 +28,8 @@ if ( ! defined( 'GMAIL_USERNAME' ) ) {
 if ( ! defined( 'GMAIL_PASSWORD' ) ) {
     define( 'GMAIL_PASSWORD', getenv( 'GMAIL_PASSWORD' ) ?: '' );
 }
-if ( ! defined( 'SENDGRID_API_KEY' ) ) {
-    define( 'SENDGRID_API_KEY', getenv( 'SENDGRID_API_KEY' ) ?: '' );
+if ( ! defined( 'BREVO_API_KEY' ) ) {
+    define( 'BREVO_API_KEY', getenv( 'BREVO_API_KEY' ) ?: '' );
 }
 
 // ** Database settings - Auto-detect local vs production ** //
@@ -108,6 +108,11 @@ $table_prefix = 'wp_';
 define('WP_DEBUG', true);
 define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', false);
+
+// Redirect error_log to stderr so Railway can see it
+if ( ! defined( 'WP_ENVIRONMENT_TYPE' ) ) {
+    ini_set('error_log', 'php://stderr');
+}
 
 /* Add any custom values between this line and the "stop editing" line. */
 
