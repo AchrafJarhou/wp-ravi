@@ -42,3 +42,4 @@ composer.lock
 *.backup
 *.tmp
 wp-cli.local.yml
+wp-content/ai1wm-backups/
