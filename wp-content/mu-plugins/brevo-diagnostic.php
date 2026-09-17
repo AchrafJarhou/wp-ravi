@@ -15,13 +15,14 @@ add_action('rest_api_init', function() {
         'callback' => function($request) {
             $email = $request->get_param('email') ?: 'achraf.jarhou@laplateforme.io';
 
-            // Log to file
-            $log_file = '/tmp/brevo-test.log';
-            file_put_contents($log_file, '[' . date('Y-m-d H:i:s') . '] Test email to: ' . $email . "\n", FILE_APPEND);
+            // Log to uploads directory
+            $upload_dir = wp_upload_dir();
+            $log_file = $upload_dir['basedir'] . '/brevo-diagnostic.log';
+            @file_put_contents($log_file, '[' . date('Y-m-d H:i:s') . '] Test email to: ' . $email . "\n", FILE_APPEND);
 
             // Check if BREVO_API_KEY is defined
             if (!defined('BREVO_API_KEY') || empty(BREVO_API_KEY)) {
-                file_put_contents($log_file, '[' . date('Y-m-d H:i:s') . '] BREVO_API_KEY not defined!' . "\n", FILE_APPEND);
+                @file_put_contents($log_file, '[' . date('Y-m-d H:i:s') . '] BREVO_API_KEY not defined!' . "\n", FILE_APPEND);
                 return array(
                     'success' => false,
                     'message' => 'BREVO_API_KEY not configured',
@@ -29,7 +30,7 @@ add_action('rest_api_init', function() {
                 );
             }
 
-            file_put_contents($log_file, '[' . date('Y-m-d H:i:s') . '] BREVO_API_KEY defined, calling API' . "\n", FILE_APPEND);
+            @file_put_contents($log_file, '[' . date('Y-m-d H:i:s') . '] BREVO_API_KEY defined, calling API' . "\n", FILE_APPEND);
 
             // Call Brevo API directly
             $body = array(
@@ -56,7 +57,7 @@ add_action('rest_api_init', function() {
 
             if (is_wp_error($response)) {
                 $error = $response->get_error_message();
-                file_put_contents($log_file, '[' . date('Y-m-d H:i:s') . '] WP Error: ' . $error . "\n", FILE_APPEND);
+                @file_put_contents($log_file, '[' . date('Y-m-d H:i:s') . '] WP Error: ' . $error . "\n", FILE_APPEND);
                 return array(
                     'success' => false,
                     'message' => 'WP Error: ' . $error,
@@ -67,7 +68,7 @@ add_action('rest_api_init', function() {
             $http_code = wp_remote_retrieve_response_code($response);
             $body_content = wp_remote_retrieve_body($response);
 
-            file_put_contents($log_file, '[' . date('Y-m-d H:i:s') . '] HTTP ' . $http_code . ': ' . $body_content . "\n", FILE_APPEND);
+            @file_put_contents($log_file, '[' . date('Y-m-d H:i:s') . '] HTTP ' . $http_code . ': ' . $body_content . "\n", FILE_APPEND);
 
             if ($http_code === 201) {
                 return array(
