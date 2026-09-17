@@ -54,10 +54,6 @@ define( 'DB_COLLATE', 'utf8mb4_unicode_ci' );
 define('JWT_AUTH_SECRET_KEY', '$fE$lxFhGZ&$35;&3kHp:%XW-rg4syrbsmE.-!){>eQ*KA4Xu}$.3BAgnIna3Os.');
 define('JWT_AUTH_CORS_ENABLE', true);
 
-// Gmail SMTP Credentials
-define('GMAIL_USERNAME', 'achraf.jarhou@laplateforme.io');
-define('GMAIL_PASSWORD', 'ydbsvsahgpduysfz');
-
 /**#@+
  * Authentication unique keys and salts.
  *
