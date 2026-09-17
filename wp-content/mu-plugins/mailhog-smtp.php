@@ -47,9 +47,17 @@ add_filter('wp_mail_content_type', function() {
 // Log emails being sent
 add_filter('wp_mail', function($atts) {
     $to = is_array($atts['to']) ? implode(', ', $atts['to']) : $atts['to'];
-    error_log('📧 EMAIL: To=' . $to . ' | Subject=' . $atts['subject']);
+    error_log('📧 EMAIL ATTEMPT: To=' . $to . ' | Subject=' . $atts['subject']);
     return $atts;
 });
+
+// Capture PHPMailer errors and debug info
+add_action('phpmailer_init', function($phpmailer) {
+    $phpmailer->SMTPDebug = 2;
+    $phpmailer->Debugoutput = function($message) {
+        error_log('🔧 SMTP DEBUG: ' . trim($message));
+    };
+}, 999);
 
 // Set from email
 add_filter('wp_mail_from', function($from) {
