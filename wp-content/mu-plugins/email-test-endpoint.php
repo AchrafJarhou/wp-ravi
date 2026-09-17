@@ -22,12 +22,15 @@ add_action('rest_api_init', function() {
                 'This is a test email to verify SMTP configuration.'
             );
 
-            if ($result) {
-                error_log('✅ TEST EMAIL: Successfully sent to ' . $email);
-                return array('success' => true, 'message' => 'Email sent to ' . $email);
+            // Check if Brevo sent it (even if wp_mail returns false due to SMTP failure)
+            $brevo_sent = !empty($GLOBALS['brevo_mail_sent']);
+
+            if ($result || $brevo_sent) {
+                error_log('✅ TEST EMAIL: Successfully sent to ' . $email . ' (Brevo: ' . ($brevo_sent ? 'yes' : 'no') . ')');
+                return array('success' => true, 'message' => 'Email sent to ' . $email . ' via Brevo', 'brevo_sent' => $brevo_sent);
             } else {
                 error_log('❌ TEST EMAIL: Failed to send to ' . $email);
-                return array('success' => false, 'message' => 'Failed to send email');
+                return array('success' => false, 'message' => 'Failed to send email', 'brevo_sent' => false);
             }
         },
         'permission_callback' => '__return_true'
