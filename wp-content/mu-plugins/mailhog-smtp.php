@@ -8,6 +8,13 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// Only use Gmail SMTP in development (when SendGrid is not configured)
+$sendgrid_key = getenv('SENDGRID_API_KEY');
+if (!empty($sendgrid_key)) {
+    // Production: SendGrid is configured, skip this
+    return;
+}
+
 // Hook into PHPMailer and configure Gmail SMTP
 add_action('phpmailer_init', function($phpmailer) {
     // Get credentials from wp-config constants
