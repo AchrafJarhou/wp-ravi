@@ -9,12 +9,14 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-error_log('🔍 BREVO MAILER: Checking if configured...');
+// Log to stderr
+fwrite(STDERR, "[BREVO] Plugin loaded\n");
 
 // Check if Brevo is configured (production)
 $use_brevo = defined('BREVO_API_KEY') && !empty(BREVO_API_KEY);
-error_log('BREVO_API_KEY defined: ' . (defined('BREVO_API_KEY') ? 'YES' : 'NO'));
-error_log('BREVO_API_KEY empty: ' . (empty(BREVO_API_KEY) ? 'YES (EMPTY)' : 'NO (HAS VALUE)'));
+fwrite(STDERR, "[BREVO] BREVO_API_KEY defined: " . (defined('BREVO_API_KEY') ? 'YES' : 'NO') . "\n");
+fwrite(STDERR, "[BREVO] BREVO_API_KEY value: " . (empty(BREVO_API_KEY) ? 'EMPTY' : 'HAS_VALUE') . "\n");
+fwrite(STDERR, "[BREVO] use_brevo flag: " . ($use_brevo ? 'TRUE' : 'FALSE') . "\n");
 
 if ($use_brevo) {
     error_log('🚀 Brevo mailer activated');
@@ -24,7 +26,7 @@ if ($use_brevo) {
         $brevo_key = defined('BREVO_API_KEY') ? BREVO_API_KEY : '';
 
         if (empty($brevo_key)) {
-            error_log('❌ BREVO: API key not found');
+            fwrite(STDERR, "[BREVO] ❌ API key not found\n");
             return $atts;
         }
 
@@ -33,7 +35,7 @@ if ($use_brevo) {
         $message = $atts['message'];
         $headers = isset($atts['headers']) ? $atts['headers'] : '';
 
-        error_log('🚀 BREVO: Attempting to send email to ' . $to);
+        fwrite(STDERR, "[BREVO] 🚀 Attempting to send email to " . $to . "\n");
 
         // Use verified Brevo sender address
         $from_email = 'jarhou06@gmail.com';
@@ -77,21 +79,21 @@ if ($use_brevo) {
         ));
 
         if (is_wp_error($response)) {
-            error_log('❌ BREVO ERROR: ' . $response->get_error_message());
+            fwrite(STDERR, "[BREVO] ❌ ERROR: " . $response->get_error_message() . "\n");
             return $atts;
         }
 
         $http_code = wp_remote_retrieve_response_code($response);
         if ($http_code === 201) {
-            error_log('✅ BREVO: Email sent successfully to ' . $to);
+            fwrite(STDERR, "[BREVO] ✅ Email sent successfully to " . $to . "\n");
             return $atts;
         } else {
             $body = wp_remote_retrieve_body($response);
-            error_log('❌ BREVO ERROR (' . $http_code . '): ' . $body);
+            fwrite(STDERR, "[BREVO] ❌ ERROR (" . $http_code . "): " . $body . "\n");
             return $atts;
         }
     }, 1000);
 } else {
     // Development: Keep Gmail SMTP configuration from mailhog-smtp.php
-    error_log('📧 Development mode: Using Gmail SMTP');
+    fwrite(STDERR, "[EMAIL] Development mode: Using Gmail SMTP\n");
 }
