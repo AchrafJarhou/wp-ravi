@@ -47,7 +47,6 @@ install_plugins() {
   /usr/local/bin/wp plugin install akismet --activate --allow-root
   /usr/local/bin/wp plugin install jetpack --activate --allow-root
   /usr/local/bin/wp plugin install woo-stripe-payment --activate --allow-root
-  /usr/local/bin/wp plugin install wp-mail-smtp --activate --allow-root
 
   # Activate JWT Auth plugin
   echo "Activating JWT Auth plugin..."
