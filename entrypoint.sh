@@ -1,6 +1,26 @@
 #!/bin/bash
 set -e
 
+# Create .env file from environment variables
+echo "Creating .env file from environment variables..."
+cat > /var/www/html/.env <<EOF
+# Database
+DB_HOST=${DB_HOST:-localhost}
+DB_NAME=${DB_NAME:-ravie_woocomerce}
+DB_USER=${DB_USER:-root}
+DB_PASSWORD=${DB_PASSWORD:-}
+
+# Gmail SMTP
+GMAIL_USERNAME=${GMAIL_USERNAME:-achraf.jarhou@laplateforme.io}
+GMAIL_PASSWORD=${GMAIL_PASSWORD:-}
+
+# WordPress
+WP_DEBUG=true
+WP_DEBUG_LOG=true
+EOF
+
+chmod 600 /var/www/html/.env
+
 # Fix permissions for WordPress directories
 echo "Fixing file permissions..."
 mkdir -p /var/www/html/wp-content/uploads /var/www/html/wp-content/themes /var/www/html/wp-content/plugins /var/www/html/wp-content/upgrade

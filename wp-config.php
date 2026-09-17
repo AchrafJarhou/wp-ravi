@@ -18,6 +18,9 @@
  * @package WordPress
  */
 
+// Load environment variables from .env file
+require_once __DIR__ . '/load-env.php';
+
 // ** Database settings - Auto-detect local vs production ** //
 if ( getenv( 'DB_HOST' ) ) {
     // Production (Railway)
