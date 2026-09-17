@@ -30,8 +30,8 @@ if ($use_sendgrid) {
 
         error_log('🚀 SENDGRID: Attempting to send email to ' . $to);
 
-        // Parse headers for from email and name
-        $from_email = 'achraf.jarhou@laplateforme.io';
+        // Use verified SendGrid sender address (must be verified in SendGrid)
+        $from_email = 'jarhou06@gmail.com';
         $from_name = 'Ravi';
 
         if (is_array($headers)) {
