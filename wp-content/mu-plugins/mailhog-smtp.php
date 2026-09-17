@@ -9,11 +9,13 @@ if (!defined('ABSPATH')) {
 }
 
 // Only use Gmail SMTP in development (when SendGrid is not configured)
-$sendgrid_key = getenv('SENDGRID_API_KEY');
-if (!empty($sendgrid_key)) {
+if (defined('SENDGRID_API_KEY') && !empty(SENDGRID_API_KEY)) {
     // Production: SendGrid is configured, skip this
+    error_log('📧 Development mode: SendGrid active, skipping Gmail SMTP');
     return;
 }
+
+error_log('📧 Development mode: Using Gmail SMTP');
 
 // Hook into PHPMailer and configure Gmail SMTP
 add_action('phpmailer_init', function($phpmailer) {

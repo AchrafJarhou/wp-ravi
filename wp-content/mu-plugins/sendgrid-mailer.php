@@ -9,13 +9,14 @@ if (!defined('ABSPATH')) {
 }
 
 // Check if SendGrid is configured (production)
-$sendgrid_key = getenv('SENDGRID_API_KEY');
-$use_sendgrid = !empty($sendgrid_key);
+$use_sendgrid = defined('SENDGRID_API_KEY') && !empty(SENDGRID_API_KEY);
 
 if ($use_sendgrid) {
+    error_log('🚀 SendGrid mailer activated');
+
     // Production: Use SendGrid API
     add_filter('wp_mail', function($atts) {
-        $sendgrid_key = getenv('SENDGRID_API_KEY');
+        $sendgrid_key = defined('SENDGRID_API_KEY') ? SENDGRID_API_KEY : '';
 
         if (empty($sendgrid_key)) {
             error_log('❌ SENDGRID: API key not found');

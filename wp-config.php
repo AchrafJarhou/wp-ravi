@@ -21,12 +21,15 @@
 // Load environment variables from .env file
 require_once __DIR__ . '/load-env.php';
 
-// Define Gmail constants from environment variables (for email configuration)
+// Define email constants from environment variables
 if ( ! defined( 'GMAIL_USERNAME' ) ) {
     define( 'GMAIL_USERNAME', getenv( 'GMAIL_USERNAME' ) ?: 'achraf.jarhou@laplateforme.io' );
 }
 if ( ! defined( 'GMAIL_PASSWORD' ) ) {
     define( 'GMAIL_PASSWORD', getenv( 'GMAIL_PASSWORD' ) ?: '' );
+}
+if ( ! defined( 'SENDGRID_API_KEY' ) ) {
+    define( 'SENDGRID_API_KEY', getenv( 'SENDGRID_API_KEY' ) ?: '' );
 }
 
 // ** Database settings - Auto-detect local vs production ** //
