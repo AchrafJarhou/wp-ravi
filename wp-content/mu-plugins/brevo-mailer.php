@@ -8,11 +8,17 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+error_log('[BREVO-MAILER] Plugin loaded');
+error_log('[BREVO-MAILER] BREVO_API_KEY defined: ' . (defined('BREVO_API_KEY') ? 'YES' : 'NO'));
+
 // Only activate if BREVO_API_KEY is configured
 if (!defined('BREVO_API_KEY') || empty(BREVO_API_KEY)) {
     // Development mode - Gmail SMTP handled by mailhog-smtp.php
+    error_log('[BREVO-MAILER] BREVO_API_KEY not set, using development mode');
     return;
 }
+
+error_log('[BREVO-MAILER] BREVO_API_KEY found, registering filter');
 
 // Production: Use Brevo API
 add_filter('wp_mail', function($atts) {
