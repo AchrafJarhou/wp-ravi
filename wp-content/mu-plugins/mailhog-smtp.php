@@ -23,8 +23,8 @@ add_action('phpmailer_init', function($phpmailer) {
     try {
         $phpmailer->isSMTP();
         $phpmailer->Host = 'smtp.gmail.com';
-        $phpmailer->Port = 587;
-        $phpmailer->SMTPSecure = 'tls';
+        $phpmailer->Port = 465;
+        $phpmailer->SMTPSecure = 'ssl';
         $phpmailer->SMTPAuth = true;
 
         $phpmailer->Username = $username;
