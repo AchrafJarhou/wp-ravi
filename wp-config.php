@@ -21,6 +21,14 @@
 // Load environment variables from .env file
 require_once __DIR__ . '/load-env.php';
 
+// Define Gmail constants from environment variables (for email configuration)
+if ( ! defined( 'GMAIL_USERNAME' ) ) {
+    define( 'GMAIL_USERNAME', getenv( 'GMAIL_USERNAME' ) ?: 'achraf.jarhou@laplateforme.io' );
+}
+if ( ! defined( 'GMAIL_PASSWORD' ) ) {
+    define( 'GMAIL_PASSWORD', getenv( 'GMAIL_PASSWORD' ) ?: '' );
+}
+
 // ** Database settings - Auto-detect local vs production ** //
 if ( getenv( 'DB_HOST' ) ) {
     // Production (Railway)
