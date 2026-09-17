@@ -10,19 +10,28 @@ if (!defined('ABSPATH')) {
 
 // Hook into PHPMailer and configure Gmail SMTP
 add_action('phpmailer_init', function($phpmailer) {
+    // Get credentials from constants (wp-config) or environment variables
+    $username = defined('GMAIL_USERNAME') ? GMAIL_USERNAME : getenv('GMAIL_USERNAME');
+    $password = defined('GMAIL_PASSWORD') ? GMAIL_PASSWORD : getenv('GMAIL_PASSWORD');
+
+    // Only configure if we have credentials
+    if (empty($password)) {
+        return;
+    }
+
     $phpmailer->isSMTP();
     $phpmailer->Host = 'smtp.gmail.com';
     $phpmailer->Port = 587;
     $phpmailer->SMTPSecure = 'tls';
     $phpmailer->SMTPAuth = true;
 
-    $phpmailer->Username = defined('GMAIL_USERNAME') ? GMAIL_USERNAME : '';
-    $phpmailer->Password = defined('GMAIL_PASSWORD') ? GMAIL_PASSWORD : '';
+    $phpmailer->Username = $username;
+    $phpmailer->Password = $password;
 
     $phpmailer->SMTPKeepAlive = true;
     $phpmailer->Timeout = 10;
 
-    error_log('📧 Envoi via Gmail SMTP: ' . $phpmailer->Username);
+    error_log('📧 Gmail SMTP configured: ' . $username);
 });
 
 // Set email format to HTML
