@@ -44,8 +44,8 @@ add_filter('wp_mail', function($atts) {
 
         @file_put_contents($log_path, '[' . date('Y-m-d H:i:s') . '] To: ' . $to . ' | Subject: ' . substr($subject, 0, 50) . "\n", FILE_APPEND);
 
-        // Default sender
-        $from_email = 'jarhou06@gmail.com';
+        // Default sender (must be verified in Brevo)
+        $from_email = 'achraf.jarhou@laplateforme.io';
         $from_name = 'Ravi';
 
         // Check headers for From field
