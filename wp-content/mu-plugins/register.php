@@ -68,17 +68,36 @@ function headless_register_user($request)
     update_user_meta($user_id, 'first_name', $firstName);
     update_user_meta($user_id, 'last_name', $lastName);
 
-    headless_send_welcome_email($firstName, $email);
+    error_log('[REGISTER] About to send welcome email to: ' . $email);
+
+    try {
+        headless_send_welcome_email($firstName, $email);
+        error_log('[REGISTER] Welcome email sent successfully');
+    } catch (Exception $e) {
+        error_log('[REGISTER] Exception in welcome email: ' . $e->getMessage());
+        return new WP_Error('email_failed', 'Erreur lors de l\'envoi de l\'email de bienvenue.', ['status' => 500]);
+    }
+
+    error_log('[REGISTER] About to generate JWT token for username: ' . $username);
 
     $token_request = new WP_REST_Request('POST', '/jwt-auth/v1/token');
     $token_request->set_param('username', $username);
     $token_request->set_param('password', $password);
-    $token_response = rest_do_request($token_request);
+
+    try {
+        $token_response = rest_do_request($token_request);
+        error_log('[REGISTER] Token response received: ' . ($token_response->is_error() ? 'ERROR' : 'SUCCESS'));
+    } catch (Exception $e) {
+        error_log('[REGISTER] Exception in token generation: ' . $e->getMessage());
+        return new WP_Error('token_generation_failed', 'Exception: ' . $e->getMessage(), ['status' => 500]);
+    }
 
     if ($token_response->is_error()) {
+        error_log('[REGISTER] Token error: ' . $token_response->get_error_message());
         return new WP_Error('token_generation_failed', 'Compte cree, mais la connexion automatique a echoue.', ['status' => 500]);
     }
 
+    error_log('[REGISTER] Registration successful, returning token');
     return rest_ensure_response($token_response->get_data());
 }
 
