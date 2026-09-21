@@ -42,18 +42,37 @@ echo "Starting with PORT=$PORT"
 
 # Function to install plugins after WordPress is ready
 install_plugins() {
-  sleep 30
+  sleep 45
   cd /var/www/html
-  echo "Installing essential WooCommerce plugins..."
-  /usr/local/bin/wp plugin install woocommerce --activate --allow-root
-  /usr/local/bin/wp plugin install advanced-custom-fields --activate --allow-root
-  /usr/local/bin/wp plugin install akismet --activate --allow-root
-  /usr/local/bin/wp plugin install jetpack --activate --allow-root
-  /usr/local/bin/wp plugin install woo-stripe-payment --activate --allow-root
 
-  # Activate JWT Auth plugin
+  # Wait for database to be ready
+  echo "Waiting for WordPress to be ready..."
+  for i in {1..60}; do
+    if /usr/local/bin/wp core is-installed --allow-root 2>/dev/null; then
+      echo "WordPress is ready!"
+      break
+    fi
+    echo "Attempt $i/60: Waiting for WordPress..."
+    sleep 2
+  done
+
+  echo "Installing essential WooCommerce plugins..."
+
+  # Install and activate plugins
+  /usr/local/bin/wp plugin install woocommerce --activate --allow-root 2>&1 || echo "WooCommerce install attempt complete"
+  /usr/local/bin/wp plugin install advanced-custom-fields --activate --allow-root 2>&1 || true
+  /usr/local/bin/wp plugin install akismet --activate --allow-root 2>&1 || true
+  /usr/local/bin/wp plugin install jetpack --activate --allow-root 2>&1 || true
+  /usr/local/bin/wp plugin install woo-stripe-payment --activate --allow-root 2>&1 || true
+
+  # Activate JWT Auth plugin (should already be in repo)
   echo "Activating JWT Auth plugin..."
-  /usr/local/bin/wp plugin activate jwt-authentication-for-wp-rest-api --allow-root
+  /usr/local/bin/wp plugin activate jwt-authentication-for-wp-rest-api --allow-root 2>&1 || true
+
+  # Force activate all required plugins
+  echo "Ensuring all plugins are activated..."
+  /usr/local/bin/wp plugin activate --all --allow-root 2>&1 || true
+
   echo "Plugins installation complete"
 }
 
