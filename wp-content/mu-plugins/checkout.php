@@ -102,6 +102,16 @@ function headless_create_order_from_checkout($request)
 
     $order_id = $order->get_id();
 
+    // Décrémenter le stock pour chaque produit de la commande
+    foreach ($cart_items as $item) {
+        $product_id = isset($item['id']) ? intval($item['id']) : 0;
+        $quantity = isset($item['quantity']) ? intval($item['quantity']) : 1;
+
+        if ($product_id && $quantity > 0) {
+            headless_decrement_product_stock($product_id, $quantity);
+        }
+    }
+
     // Sauvegarder les adresses dans le profil du customer si connecté
     if ($user_id > 0) {
         headless_save_customer_addresses_from_order($order, $user_id);
