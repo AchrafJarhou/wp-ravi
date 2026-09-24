@@ -8,15 +8,16 @@
 
 add_action('rest_api_init', function () {
     register_rest_route('custom/v1', '/products/(?P<id>[\w-]+)/stock', [
-        'methods'             => 'GET',
-        'callback'            => 'headless_get_product_stock',
-        'permission_callback' => 'headless_check_admin_capability',
-    ]);
-
-    register_rest_route('custom/v1', '/products/(?P<id>[\w-]+)/stock', [
-        'methods'             => 'POST',
-        'callback'            => 'headless_update_product_stock',
-        'permission_callback' => 'headless_check_admin_capability',
+        [
+            'methods'             => 'GET',
+            'callback'            => 'headless_get_product_stock',
+            'permission_callback' => 'headless_check_admin_capability',
+        ],
+        [
+            'methods'             => 'POST',
+            'callback'            => 'headless_update_product_stock',
+            'permission_callback' => 'headless_check_admin_capability',
+        ],
     ]);
 });
 
