@@ -68,9 +68,60 @@ function headless_enrich_product_images($product_data)
     return $product_data;
 }
 
+/*
+ * Le Store API renvoie les termes d'un attribut par ordre alphabetique
+ * (3XL, L, M, S...) et ignore l'ordre regle dans Produits > Attributs.
+ * wc_get_product_terms respecte ce reglage : on s'en sert pour retrier.
+ */
+function headless_sort_attribute_terms($product_data)
+{
+    $product_id = is_object($product_data) ? ($product_data->id ?? null) : ($product_data['id'] ?? null);
+    $attributes = is_object($product_data) ? ($product_data->attributes ?? null) : ($product_data['attributes'] ?? null);
+
+    if (!$product_id || empty($attributes) || !is_array($attributes)) {
+        return $product_data;
+    }
+
+    $sorted = array_map(function ($attribute) use ($product_id) {
+        $taxonomy = is_object($attribute) ? ($attribute->taxonomy ?? null) : ($attribute['taxonomy'] ?? null);
+        $terms    = is_object($attribute) ? ($attribute->terms ?? null) : ($attribute['terms'] ?? null);
+
+        if (!$taxonomy || empty($terms) || !is_array($terms)) {
+            return $attribute;
+        }
+
+        $ordered_ids = wc_get_product_terms($product_id, $taxonomy, ['fields' => 'ids']);
+        $position    = array_flip(array_map('intval', $ordered_ids));
+
+        usort($terms, function ($a, $b) use ($position) {
+            $id_a = (int) (is_object($a) ? ($a->id ?? 0) : ($a['id'] ?? 0));
+            $id_b = (int) (is_object($b) ? ($b->id ?? 0) : ($b['id'] ?? 0));
+
+            return ($position[$id_a] ?? PHP_INT_MAX) <=> ($position[$id_b] ?? PHP_INT_MAX);
+        });
+
+        if (is_object($attribute)) {
+            $attribute->terms = $terms;
+        } else {
+            $attribute['terms'] = $terms;
+        }
+
+        return $attribute;
+    }, $attributes);
+
+    if (is_object($product_data)) {
+        $product_data->attributes = $sorted;
+    } else {
+        $product_data['attributes'] = $sorted;
+    }
+
+    return $product_data;
+}
+
 function headless_enrich_variation_stock($product_data)
 {
     $product_data = headless_enrich_product_images($product_data);
+    $product_data = headless_sort_attribute_terms($product_data);
 
     // Selon le contexte, le Store API renvoie les entrees de "variations" en
     // stdClass ou en tableau associatif : on gere les deux formes.
@@ -87,12 +138,25 @@ function headless_enrich_variation_stock($product_data)
         $is_in_stock  = $variation_product ? $variation_product->is_in_stock() : null;
         $stock_status = $variation_product ? $variation_product->get_stock_status() : null;
 
+        // Meme logique que le low_stock_remaining du Store API pour un produit
+        // simple : la quantite n'est exposee que sous le seuil de stock faible
+        // (WooCommerce > Reglages > Produits > Inventaire), sinon null.
+        $low_stock_remaining = null;
+        if ($variation_product && $variation_product->managing_stock()) {
+            $quantity = (int) $variation_product->get_stock_quantity();
+            if ($quantity > 0 && $quantity <= wc_get_low_stock_amount($variation_product)) {
+                $low_stock_remaining = $quantity;
+            }
+        }
+
         if (is_object($variation)) {
-            $variation->is_in_stock  = $is_in_stock;
-            $variation->stock_status = $stock_status;
+            $variation->is_in_stock         = $is_in_stock;
+            $variation->stock_status        = $stock_status;
+            $variation->low_stock_remaining = $low_stock_remaining;
         } else {
-            $variation['is_in_stock']  = $is_in_stock;
-            $variation['stock_status'] = $stock_status;
+            $variation['is_in_stock']         = $is_in_stock;
+            $variation['stock_status']        = $stock_status;
+            $variation['low_stock_remaining'] = $low_stock_remaining;
         }
 
         return $variation;
