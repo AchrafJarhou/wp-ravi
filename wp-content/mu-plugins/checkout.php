@@ -40,10 +40,33 @@ function headless_create_order_from_checkout($request)
         return new WP_Error('invalid_email', 'Email invalide.', ['status' => 400]);
     }
 
+    // Seule l'identité authentifiée par le jeton JWT compte. Un identifiant lu
+    // dans le corps de la requête laisserait n'importe qui rattacher une
+    // commande au compte de son choix, et en remplacer les adresses
+    // enregistrées — celles que le formulaire de commande pré-remplit.
     $user_id = get_current_user_id();
-    // Fallback : utiliser l'user_id envoyé dans les params si get_current_user_id() retourne 0
-    if ($user_id === 0 && isset($params['userId']) && is_numeric($params['userId'])) {
-        $user_id = intval($params['userId']);
+
+    // Entre l'ajout au panier et le paiement, la derniere piece d'une taille a
+    // pu partir chez un autre client : on refuse la commande plutot que de
+    // vendre un article qui n'existe plus. Pour un produit variable, l'id du
+    // panier est celui de la variation, le stock controle est donc celui de
+    // la taille choisie.
+    foreach ($cart_items as $item) {
+        $product_id = isset($item['id']) ? intval($item['id']) : 0;
+        $quantity = isset($item['quantity']) ? intval($item['quantity']) : 1;
+
+        if (!$product_id) continue;
+
+        $product = wc_get_product($product_id);
+        if (!$product) continue;
+
+        if (!$product->is_in_stock() || !$product->has_enough_stock($quantity)) {
+            return new WP_Error(
+                'insufficient_stock',
+                sprintf('Stock insuffisant pour « %s ». Veuillez modifier votre panier.', $product->get_name()),
+                ['status' => 409]
+            );
+        }
     }
 
     $order = wc_create_order();
@@ -102,15 +125,10 @@ function headless_create_order_from_checkout($request)
 
     $order_id = $order->get_id();
 
-    // Décrémenter le stock pour chaque produit de la commande
-    foreach ($cart_items as $item) {
-        $product_id = isset($item['id']) ? intval($item['id']) : 0;
-        $quantity = isset($item['quantity']) ? intval($item['quantity']) : 1;
-
-        if ($product_id && $quantity > 0) {
-            headless_decrement_product_stock($product_id, $quantity);
-        }
-    }
+    // Réduction du stock par WooCommerce lui-même : la commande est marquée
+    // « stock réduit », sans quoi il le retirerait une seconde fois au passage
+    // en Terminée, et il le remet de lui-même si la commande est annulée.
+    wc_reduce_stock_levels($order_id);
 
     // Sauvegarder les adresses dans le profil du customer si connecté
     if ($user_id > 0) {

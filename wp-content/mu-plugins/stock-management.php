@@ -3,7 +3,8 @@
 /*=======================================
  *  Gestion du stock des produits
  *  - Endpoints API pour admin
- *  - Fonctions utilitaires pour décrémenter le stock
+ *  (la réduction du stock à la commande passe par wc_reduce_stock_levels,
+ *  dans checkout.php)
  *  =============================================*/
 
 add_action('rest_api_init', function () {
@@ -109,24 +110,4 @@ if (!function_exists('headless_resolve_product_id')) {
 
         return $query->have_posts() ? (int) $query->posts[0] : 0;
     }
-}
-
-function headless_decrement_product_stock($product_id, $quantity)
-{
-    if (!function_exists('wc_get_product')) {
-        return false;
-    }
-
-    $product = wc_get_product($product_id);
-    if (!$product) {
-        return false;
-    }
-
-    $current_stock = $product->get_stock_quantity();
-    $new_stock = max(0, $current_stock - $quantity);
-
-    $product->set_stock_quantity($new_stock);
-    $product->save();
-
-    return true;
 }
