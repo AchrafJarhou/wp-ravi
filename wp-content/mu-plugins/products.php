@@ -118,6 +118,29 @@ function headless_sort_attribute_terms($product_data)
     return $product_data;
 }
 
+/*
+ * Le Store API ne donne qu'un prix par produit variable (le plus bas, plus
+ * une fourchette) : sans prix par variation, le front ne peut pas afficher
+ * celui de la taille choisie. On le fournit au meme format que
+ * product.prices (chaines en plus petite unite, "3499" pour 34,99 EUR),
+ * taxes affichees selon le reglage de la boutique.
+ */
+function headless_variation_prices($variation_product)
+{
+    $to_minor_unit = function ($amount) {
+        return (string) (int) round((float) $amount * pow(10, wc_get_price_decimals()));
+    };
+
+    $price   = wc_get_price_to_display($variation_product);
+    $regular = wc_get_price_to_display($variation_product, ['price' => $variation_product->get_regular_price()]);
+
+    return [
+        'price'         => $to_minor_unit($price),
+        'regular_price' => $to_minor_unit($regular),
+        'sale_price'    => $to_minor_unit($price),
+    ];
+}
+
 function headless_enrich_variation_stock($product_data)
 {
     $product_data = headless_enrich_product_images($product_data);
@@ -149,14 +172,18 @@ function headless_enrich_variation_stock($product_data)
             }
         }
 
+        $prices = $variation_product ? headless_variation_prices($variation_product) : null;
+
         if (is_object($variation)) {
             $variation->is_in_stock         = $is_in_stock;
             $variation->stock_status        = $stock_status;
             $variation->low_stock_remaining = $low_stock_remaining;
+            $variation->prices              = $prices;
         } else {
             $variation['is_in_stock']         = $is_in_stock;
             $variation['stock_status']        = $stock_status;
             $variation['low_stock_remaining'] = $low_stock_remaining;
+            $variation['prices']              = $prices;
         }
 
         return $variation;
