@@ -141,10 +141,62 @@ function headless_variation_prices($variation_product)
     ];
 }
 
+/*
+ * WordPress est monolingue : les traductions d'un produit sont saisies dans
+ * les champs ACF du groupe « Traduction Anglais » (title_en, description_en).
+ * On les expose sous translations.<langue> pour que le front choisisse selon
+ * la langue affichee, sans nouvel appel au changement de langue. Un champ
+ * vide est omis : le front retombe alors sur le texte francais.
+ */
+function headless_enrich_product_translations($product_data)
+{
+    $product_id = is_object($product_data) ? ($product_data->id ?? null) : ($product_data['id'] ?? null);
+
+    if (!$product_id) {
+        return $product_data;
+    }
+
+    $fields_by_language = [
+        'en' => ['name' => 'title_en', 'description' => 'description_en'],
+    ];
+
+    $translations = [];
+
+    foreach ($fields_by_language as $language => $meta_keys) {
+        $name        = trim(wp_strip_all_tags((string) get_post_meta($product_id, $meta_keys['name'], true)));
+        $description = trim((string) get_post_meta($product_id, $meta_keys['description'], true));
+
+        $translation = [];
+
+        if ($name !== '') {
+            $translation['name'] = $name;
+        }
+
+        // Meme forme que short_description : du HTML decoupe en paragraphes.
+        if ($description !== '') {
+            $translation['description'] = wpautop(wp_kses_post($description));
+        }
+
+        if ($translation) {
+            $translations[$language] = $translation;
+        }
+    }
+
+    // Objet, pour qu'un produit sans traduction donne {} et non [] en JSON.
+    if (is_object($product_data)) {
+        $product_data->translations = (object) $translations;
+    } else {
+        $product_data['translations'] = (object) $translations;
+    }
+
+    return $product_data;
+}
+
 function headless_enrich_variation_stock($product_data)
 {
     $product_data = headless_enrich_product_images($product_data);
     $product_data = headless_sort_attribute_terms($product_data);
+    $product_data = headless_enrich_product_translations($product_data);
 
     // Selon le contexte, le Store API renvoie les entrees de "variations" en
     // stdClass ou en tableau associatif : on gere les deux formes.
