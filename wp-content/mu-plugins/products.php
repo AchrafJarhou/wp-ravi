@@ -143,7 +143,7 @@ function headless_variation_prices($variation_product)
 
 /*
  * WordPress est monolingue : les traductions d'un produit sont saisies dans
- * les champs ACF du groupe « Traduction Anglais » (title_en, description_en).
+ * les champs ACF du groupe « Traduction Anglais » (title_en, description_en, matiere_en).
  * On les expose sous translations.<langue> pour que le front choisisse selon
  * la langue affichee, sans nouvel appel au changement de langue. Un champ
  * vide est omis : le front retombe alors sur le texte francais.
@@ -157,7 +157,7 @@ function headless_enrich_product_translations($product_data)
     }
 
     $fields_by_language = [
-        'en' => ['name' => 'title_en', 'description' => 'description_en'],
+        'en' => ['name' => 'title_en', 'description' => 'description_en', 'material' => 'matiere_en'],
     ];
 
     $translations = [];
@@ -165,11 +165,17 @@ function headless_enrich_product_translations($product_data)
     foreach ($fields_by_language as $language => $meta_keys) {
         $name        = trim(wp_strip_all_tags((string) get_post_meta($product_id, $meta_keys['name'], true)));
         $description = trim((string) get_post_meta($product_id, $meta_keys['description'], true));
+        $material    = trim(wp_strip_all_tags((string) get_post_meta($product_id, $meta_keys['material'], true)));
 
         $translation = [];
 
         if ($name !== '') {
             $translation['name'] = $name;
+        }
+
+        // La matiere en francais reste l'attribut « Matiere » du produit.
+        if ($material !== '') {
+            $translation['material'] = $material;
         }
 
         // Meme forme que short_description : du HTML decoupe en paragraphes.
