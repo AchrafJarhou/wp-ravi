@@ -23,51 +23,6 @@ add_action('rest_api_init', function () {
     ]);
 });
 
-function headless_enrich_product_images($product_data)
-{
-    $product_id = is_object($product_data) ? ($product_data->id ?? null) : ($product_data['id'] ?? null);
-
-    if (!$product_id) {
-        return $product_data;
-    }
-
-    $product = wc_get_product($product_id);
-
-    if (!$product) {
-        return $product_data;
-    }
-
-    $images = [];
-
-    // Image principale
-    $image_id = $product->get_image_id();
-    if ($image_id) {
-        $image_url = wp_get_attachment_image_url($image_id, 'full');
-        if ($image_url) {
-            $images[] = ['id' => $image_id, 'src' => $image_url];
-        }
-    }
-
-    // Images de galerie
-    $gallery_ids = $product->get_gallery_image_ids();
-    if ($gallery_ids && is_array($gallery_ids)) {
-        foreach ($gallery_ids as $gal_id) {
-            $image_url = wp_get_attachment_image_url($gal_id, 'full');
-            if ($image_url) {
-                $images[] = ['id' => $gal_id, 'src' => $image_url];
-            }
-        }
-    }
-
-    if (is_object($product_data)) {
-        $product_data->images = $images;
-    } else {
-        $product_data['images'] = $images;
-    }
-
-    return $product_data;
-}
-
 /*
  * Le Store API renvoie les termes d'un attribut par ordre alphabetique
  * (3XL, L, M, S...) et ignore l'ordre regle dans Produits > Attributs.
@@ -200,7 +155,9 @@ function headless_enrich_product_translations($product_data)
 
 function headless_enrich_variation_stock($product_data)
 {
-    $product_data = headless_enrich_product_images($product_data);
+    // Les images n'ont pas besoin d'etre enrichies : le Store API renvoie deja
+    // l'image principale puis la galerie, dans l'ordre de l'admin, avec pour
+    // chacune ses tailles reduites (srcset) et son texte alternatif.
     $product_data = headless_sort_attribute_terms($product_data);
     $product_data = headless_enrich_product_translations($product_data);
 
