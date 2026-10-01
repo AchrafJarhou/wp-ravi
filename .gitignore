@@ -43,3 +43,6 @@ composer.lock
 *.tmp
 wp-cli.local.yml
 wp-content/ai1wm-backups/
+
+# Logs
+wp-content/debug.log
