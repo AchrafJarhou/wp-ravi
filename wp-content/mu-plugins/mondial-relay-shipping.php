@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Custom Mondial Relay & Shipping Manager
- * Description: Gère la recherche de points relais via l'API Mondial Relay et l'enregistrement des modes de livraison (Domicile vs Point Relais).
- * Version: 1.0
+ * Description: Recherche de points relais via l'API Mondial Relay et enregistrement du mode de livraison (Domicile vs Point Relais) sur la commande.
+ * Version: 1.1
  * Author: Équipe Projet Headless
  */
 
@@ -11,7 +11,8 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * 1. Route REST pour la recherche de points relais (Mondial Relay)
+ * 1. Route REST : recherche de points relais
+ *    POST /wp-json/custom/v1/mondial-relay/points-relais
  */
 add_action('rest_api_init', function () {
     register_rest_route('custom/v1', '/mondial-relay/points-relais', [
@@ -29,31 +30,35 @@ function custom_proxy_mondial_relay_search($request) {
     $city        = sanitize_text_field($params['city'] ?? '');
     $action_type = sanitize_text_field($params['action'] ?? '24R');
 
+    if (defined('WP_DEBUG') && WP_DEBUG) {
+        error_log('[MR] requête reçue : ' . wp_json_encode($params));
+    }
+
     if (empty($postal_code)) {
         return new WP_Error('missing_cp', 'Le code postal est obligatoire.', ['status' => 400]);
     }
 
-    // Identifiants de test officiels Mondial Relay
-    $enseigne    = 'BDTEST13'; 
+    // Identifiants de TEST officiels Mondial Relay (à remplacer en production)
+    $enseigne    = 'BDTEST13';
     $private_key = 'PrivateK';
 
     $string_to_hash = $enseigne . $country . '' . $city . $postal_code . '' . '' . '' . '' . '' . $action_type . '' . '' . $private_key;
     $security_key   = strtoupper(md5($string_to_hash));
 
     $soap_url = 'https://api.mondialrelay.com/Web_Services.asmx?WSDL';
-    
+
     $post_data = [
-        'Enseigne'      => $enseigne,
-        'Pays'          => $country,
-        'Ville'         => $city,
-        'CP'            => $postal_code,
-        'Taille'        => '',
-        'Poids'         => '',
-        'Action'        => $action_type,
-        'DelaiEnvoi'    => '',
-        'RayonRecherche'=> '',
-        'TypeActivite'  => '',
-        'Security'      => $security_key,
+        'Enseigne'       => $enseigne,
+        'Pays'           => $country,
+        'Ville'          => $city,
+        'CP'             => $postal_code,
+        'Taille'         => '',
+        'Poids'          => '',
+        'Action'         => $action_type,
+        'DelaiEnvoi'     => '',
+        'RayonRecherche' => '',
+        'TypeActivite'   => '',
+        'Security'       => $security_key,
     ];
 
     try {
@@ -64,46 +69,66 @@ function custom_proxy_mondial_relay_search($request) {
         $client   = new SoapClient($soap_url, ['trace' => true, 'exceptions' => true]);
         $response = $client->WSI3_PointRelais_Recherche($post_data);
 
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            error_log('[MR] réponse SOAP : ' . wp_json_encode($response));
+        }
+
         if (isset($response->WSI3_PointRelais_RechercheResult)) {
             $result = $response->WSI3_PointRelais_RechercheResult;
-            
-            if ($result->STAT == 0) {
+
+            if ((int) $result->STAT === 0) {
                 return rest_ensure_response([
                     'success'       => true,
-                    'points_relais' => $result->PointsRelais->PointRelais_Details ?? []
+                    'points_relais' => $result->PointsRelais->PointRelais_Details ?? [],
                 ]);
-            } else {
-                return new WP_Error('mondial_relay_error', 'Erreur Mondial Relay (Code: ' . $result->STAT . ')', ['status' => 400]);
             }
+
+            return new WP_Error('mondial_relay_error', 'Erreur Mondial Relay (Code: ' . $result->STAT . ')', ['status' => 400]);
         }
 
         return new WP_Error('mondial_relay_invalid', 'Réponse invalide du service Mondial Relay.', ['status' => 500]);
 
     } catch (\Exception $e) {
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            error_log('[MR] exception SOAP : ' . $e->getMessage());
+        }
         return new WP_Error('soap_error', $e->getMessage(), ['status' => 500]);
     }
 }
 
 /**
- * 2. Enregistrement du mode de livraison (Domicile ou Point Relais) lors de la commande
- * Permet de stocker le choix du client et les infos du point relais dans les métas WooCommerce
+ * 2. Enregistre le mode de livraison et le point relais dans les métas de la commande.
+ *
+ * Appelée par le handler de l'endpoint custom/v1/checkout (checkout.php), une
+ * fois la commande créée. Le hook woocommerce_checkout_create_order ne se
+ * déclenche pas pour un endpoint REST personnalisé, d'où cette fonction.
+ *
+ * @param WC_Order $order
+ * @param array|null $details ['type' => 'relay'|'home', 'method_id', 'relay_id', 'relay_name', 'relay_address']
  */
-add_action('woocommerce_checkout_create_order', function ($order, $data) {
-    // On récupère les données envoyées depuis le front-end React lors du checkout
-    $request_data = WC()->session ? WC()->session->get('custom_shipping_data') : null;
-
-    if (!$request_data && isset($_POST['shipping_method_details'])) {
-        $request_data = json_decode(sanitize_text_field(wp_unslash($_POST['shipping_method_details'])), true);
+function custom_save_shipping_details($order, $details) {
+    if (!$order || !is_array($details)) {
+        return;
     }
 
-    if ($request_data) {
-        $method_type   = sanitize_text_field($request_data['type'] ?? 'home'); // 'home' ou 'relay'
-        $order->update_meta_data('_shipping_method_type', $method_type);
+    $type = sanitize_text_field($details['type'] ?? 'home');
+    $type = in_array($type, ['home', 'relay'], true) ? $type : 'home';
 
-        if ($method_type === 'relay' && !empty($request_data['relay_id'])) {
-            $order->update_meta_data('_mondial_relay_id', sanitize_text_field($request_data['relay_id']));
-            $order->update_meta_data('_mondial_relay_name', sanitize_text_field($request_data['relay_name'] ?? ''));
-            $order->update_meta_data('_mondial_relay_address', sanitize_text_field($request_data['relay_address'] ?? ''));
-        }
+    $order->update_meta_data('_shipping_method_type', $type);
+
+    if (!empty($details['method_id'])) {
+        $order->update_meta_data('_shipping_method_id', sanitize_text_field($details['method_id']));
     }
-}, 10, 2);
+
+    if ($type === 'relay' && !empty($details['relay_id'])) {
+        $order->update_meta_data('_mondial_relay_id', sanitize_text_field($details['relay_id']));
+        $order->update_meta_data('_mondial_relay_name', sanitize_text_field($details['relay_name'] ?? ''));
+        $order->update_meta_data('_mondial_relay_address', sanitize_text_field($details['relay_address'] ?? ''));
+    }
+
+    $order->save();
+
+    if (defined('WP_DEBUG') && WP_DEBUG) {
+        error_log('[MR] métas enregistrées sur la commande #' . $order->get_id() . ' : ' . wp_json_encode($details));
+    }
+}
