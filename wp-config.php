@@ -122,6 +122,9 @@ if (!empty($http_host)) {
     if (strpos($http_host, 'localhost') !== false || strpos($http_host, '10.60.4.51') !== false) {
         define('WP_HOME', 'http://' . $http_host . '/wordpress-ravi');
         define('WP_SITEURL', 'http://' . $http_host . '/wordpress-ravi');
+        // Développement uniquement (localhost / réseau) : faux points relais
+        // Mondial Relay, sans identifiants. Jamais actif sur Railway ni en prod.
+        define('MR_MOCK', true);
     } elseif (strpos($http_host, 'railway.app') !== false) {
         // Railway - forcer HTTPS
         $host = preg_replace('/:\d+$/', '', $http_host);

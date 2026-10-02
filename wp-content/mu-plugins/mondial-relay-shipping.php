@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Custom Mondial Relay & Shipping Manager
  * Description: Recherche de points relais via l'API Mondial Relay et enregistrement du mode de livraison (Domicile vs Point Relais) sur la commande.
- * Version: 1.1
+ * Version: 1.2
  * Author: Équipe Projet Headless
  */
 
@@ -38,9 +38,23 @@ function custom_proxy_mondial_relay_search($request) {
         return new WP_Error('missing_cp', 'Le code postal est obligatoire.', ['status' => 400]);
     }
 
-    // Identifiants de TEST officiels Mondial Relay (à remplacer en production)
-    $enseigne    = 'BDTEST13';
-    $private_key = 'PrivateK';
+    // Mode simulation (développement, sans identifiants Mondial Relay) :
+    // activer avec define('MR_MOCK', true); dans wp-config.php. À retirer en production.
+    if (defined('MR_MOCK') && MR_MOCK) {
+        return rest_ensure_response([
+            'success'       => true,
+            'points_relais' => [
+                ['Num' => '000001', 'LgAdr1' => 'Tabac Test',    'LgAdr3' => '1 rue de Test',      'CP' => $postal_code, 'Ville' => $city ?: 'Ville Test', 'Distance' => '350'],
+                ['Num' => '000002', 'LgAdr1' => 'Relais Test 2', 'LgAdr3' => '5 avenue Exemple',   'CP' => $postal_code, 'Ville' => $city ?: 'Ville Test', 'Distance' => '800'],
+                ['Num' => '000003', 'LgAdr1' => 'Boutique Test', 'LgAdr3' => '12 boulevard Modèle', 'CP' => $postal_code, 'Ville' => $city ?: 'Ville Test', 'Distance' => '1200'],
+            ],
+        ]);
+    }
+
+    // Identifiants : définis dans wp-config.php (MR_ENSEIGNE / MR_PRIVATE_KEY).
+    // À défaut, on retombe sur les identifiants de TEST officiels Mondial Relay.
+    $enseigne    = defined('MR_ENSEIGNE') ? MR_ENSEIGNE : 'BDTEST13';
+    $private_key = defined('MR_PRIVATE_KEY') ? MR_PRIVATE_KEY : 'PrivateK';
 
     $string_to_hash = $enseigne . $country . '' . $city . $postal_code . '' . '' . '' . '' . '' . $action_type . '' . '' . $private_key;
     $security_key   = strtoupper(md5($string_to_hash));
